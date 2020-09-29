@@ -8,7 +8,7 @@ from apps import home
 from apps import template
 
 # Header
-header = html.H3(config['SITE']['HEADER'],
+header = html.H3(#config['SITE']['HEADER'],
             style={"height":"62px",
                    "text-color":"white",
                    "background-image":"linear-gradient(#006600, #cccc00)",
@@ -28,6 +28,15 @@ navbar = dbc.NavbarSimple(
         dcc.Location(id='url', refresh=False),
 
         #dbc.NavLink("Page 1", href="#"),
+        # Dimensões
+        dbc.DropdownMenu(
+            children=[
+                dbc.DropdownMenuItem("dim-município", href="#"),
+            ],
+            nav=True,
+            in_navbar=True,
+            label="Dimensões",
+        ),
         # Economia
         dbc.DropdownMenu(
             children=[
@@ -55,7 +64,7 @@ navbar = dbc.NavbarSimple(
             label="Educação",
         ),
     ],
-    brand = config['SITE']['HEADER'],
+    brand = "Início",
     brand_href='/',
 )
 
@@ -81,11 +90,8 @@ app.layout = html.Div([
 
     ], style={"width":"80%", "margin":"0px auto", "padding-top":"20px",}
 )
-#app.layout = html.Div([
-#    dcc.Location(id='url', refresh=False),
-#    html.Div(id='page-content')
-#])
 
+###############################################################################
 # Callbacks
 @app.callback(Output('page-content', 'children'),
                             [Input('url', 'pathname')])
