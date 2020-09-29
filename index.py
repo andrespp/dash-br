@@ -1,5 +1,6 @@
 import dash
 import dash_bootstrap_components as dbc
+import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 from app import app, config, DWO
@@ -23,6 +24,9 @@ header = html.H3(config['SITE']['HEADER'],
 # Navbar
 navbar = dbc.NavbarSimple(
     children=[
+        # Dcc Location
+        dcc.Location(id='url', refresh=False),
+
         #dbc.NavLink("Page 1", href="#"),
         # Economia
         dbc.DropdownMenu(
@@ -56,10 +60,11 @@ navbar = dbc.NavbarSimple(
 )
 
 # Content
-content = html.Div(id='content', children='content')
+content = html.Div(id='page-content')
 
 # Dash App's layout
 app.title = config['SITE']['TITLE']
+
 app.layout = html.Div([
 
     # Header
@@ -71,17 +76,20 @@ app.layout = html.Div([
            ),
 
     # Contents
-    html.Div(id='content', children=home.layout,
+    html.Div(id='page-content',
             ),
 
     ], style={"width":"80%", "margin":"0px auto", "padding-top":"20px",}
 )
+#app.layout = html.Div([
+#    dcc.Location(id='url', refresh=False),
+#    html.Div(id='page-content')
+#])
 
 # Callbacks
-@app.callback(Output('content', 'children'),
-              [Input('url', 'pathname')])
+@app.callback(Output('page-content', 'children'),
+                            [Input('url', 'pathname')])
 def display_page(pathname):
-    print(pathname)    
     err= html.Div([html.P('Page not found!')])
     switcher = {
         '/': home.layout,
