@@ -15,6 +15,7 @@ sample = {'country':['Brazil', 'Russia','India', 'China', 'South Africa'],
          'area':[8515767, 17098242, 3287590, 9596961, 1221037],
          'capital':['Brasilia', 'Moscow', 'New Delhi', 'Beijing', 'Pretoria'],
 }
+DF_NAME='template'
 
 ###############################################################################
 # Settings
@@ -34,7 +35,9 @@ columns_counter = daq.LEDDisplay(id='attr-counter',
                              labelPosition='bottom',
                              value="0")
 download_buttons = dbc.ButtonGroup(
-    [dbc.Button("CSV", color="success", id='csv-btn'),
+    [html.A(dbc.Button("CSV", color="success", id='csv-btn'),
+           id='csv-A', download=DF_NAME+".csv"),
+
      dbc.Button("ODS", color="success"),
      dbc.Button("XLS", color="success"),
     ],
@@ -95,9 +98,9 @@ def update_attr_counter(n_clicks):
     return str(len(df.columns))
 
 @app.callback(
-    Output(component_id='csv-btn', component_property='href'),
+    Output(component_id='csv-A', component_property='href'),
     [Input(component_id='csv-btn', component_property='n_clicks')])
-def update_download_fluidez(n_clicks):
+def update_download(n_clicks):
 
     # Export CVS
     csv_string = df.to_csv(index=False, encoding='utf-8', sep=';')
