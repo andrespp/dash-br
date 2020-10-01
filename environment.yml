@@ -1,0 +1,13 @@
+name: dash-dwbra
+
+dependencies:
+  - python=3.8
+  - dash-core-components
+  - dash-html-components
+  - dash-renderer
+  - dash-table
+  - pip:
+    - dash-daq
+    - dash-auth
+    - dash-bootstrap-components
+    - uetl==0.0.6

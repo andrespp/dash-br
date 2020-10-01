@@ -20,10 +20,18 @@ Para configurar os parâmetros da aplicação,  as variáveis do arquivo
 
 ### Instalação de Requisitos
 
+* Instalação do gerenciador de pacotes [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
+
+* Criação do ambiente de execução da aplicação
+
 ```bash
-conda create --name dash-dwbra python=3.8
-conda activate dash-dwbra
-pip install -r requirements.txt
+$ conda env create -f environment.yml
+```
+
+### Execução da Aplicação
+```bash
+$ conda activate dash-dwbra
+$ python index.py
 ```
 
 ## Referências
