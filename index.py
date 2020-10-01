@@ -27,7 +27,7 @@ navbar = dbc.NavbarSimple(
         # Dcc Location
         dcc.Location(id='url', refresh=False),
 
-        #dbc.NavLink("Page 1", href="#"),
+        dbc.NavLink("Template", href="/template"),
         # Dimensões
         dbc.DropdownMenu(
             children=[
@@ -55,7 +55,7 @@ navbar = dbc.NavbarSimple(
         dbc.DropdownMenu(
             children=[
                 dbc.DropdownMenuItem("CAPES", header=True),
-                dbc.DropdownMenuItem("Avaliação Pós", href="/template"),
+                dbc.DropdownMenuItem("Avaliação Pós", href="#"),
                 dbc.DropdownMenuItem("MEC", header=True),
                 dbc.DropdownMenuItem("Cursos de Graduação", href="#"),
             ],
@@ -88,7 +88,9 @@ app.layout = html.Div([
     html.Div(id='page-content',
             ),
 
-    ], style={"width":"80%", "margin":"0px auto", "padding-top":"20px",}
+    ],
+
+    style={"width":"80%", "margin":"0px auto", "padding-top":"20px",}
 )
 
 ###############################################################################
