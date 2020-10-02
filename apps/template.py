@@ -3,7 +3,10 @@ import dash_html_components as html
 import dash_core_components as dcc
 import dash_daq as daq
 import dash_table
+import xlsxwriter
 import urllib
+import base64
+import io
 import pandas as pd
 from app import app, DWO
 from dash.dependencies import Input, Output
@@ -39,7 +42,10 @@ download_buttons = dbc.ButtonGroup(
            id='csv-A', download=DF_NAME+".csv"),
 
      dbc.Button("ODS", color="success"),
-     dbc.Button("XLS", color="success"),
+
+     html.A(dbc.Button("XLS", color="success", id='xls-btn'),
+           id='xls-A', download=DF_NAME+".xlsx"),
+
     ],
 )
 table_object = html.Div(id='table-obj')
@@ -82,8 +88,7 @@ def update_table_object(n_clicks):
         columns=[{"name": i, "id": i} for i in df.columns],
         data=df.to_dict('records'),
         style_cell={'textAlign': 'center'},
-)
-
+    )
 
     return figure
 
@@ -100,12 +105,27 @@ def update_attr_counter(n_clicks):
 @app.callback(
     Output(component_id='csv-A', component_property='href'),
     [Input(component_id='csv-btn', component_property='n_clicks')])
-def update_download(n_clicks):
+def update_download_csv(n_clicks):
 
     # Export CVS
     csv_string = df.to_csv(index=False, encoding='utf-8', sep=';')
     csv_string = "data:text/csv;charset=utf-8," + urllib.parse.quote(csv_string)
     return csv_string
+
+@app.callback(
+    Output(component_id='xls-A', component_property='href'),
+    [Input(component_id='xls-btn', component_property='n_clicks')])
+def update_download_xls(n_clicks):
+    xlsx_io = io.BytesIO()
+    writer = pd.ExcelWriter(xlsx_io, engine='xlsxwriter')
+    df.to_excel(writer, sheet_name=DF_NAME)
+    writer.save()
+    xlsx_io.seek(0)
+    # https://en.wikipedia.org/wiki/Data_URI_scheme
+    media_type = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    data = base64.b64encode(xlsx_io.read()).decode("utf-8")
+    href_data_downloadable = f'data:{media_type};base64,{data}'
+    return href_data_downloadable
 
 ###############################################################################
 # Data lookup functions

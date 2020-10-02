@@ -6,6 +6,7 @@ dependencies:
   - dash-html-components
   - dash-renderer
   - dash-table
+  - xlsxwriter
   - pip:
     - dash-daq
     - dash-auth
