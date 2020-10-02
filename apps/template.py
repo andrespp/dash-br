@@ -41,7 +41,8 @@ download_buttons = dbc.ButtonGroup(
     [html.A(dbc.Button("CSV", color="success", id='csv-btn'),
            id='csv-A', download=DF_NAME+".csv"),
 
-     dbc.Button("ODS", color="success"),
+     html.A(dbc.Button("ODS", color="success", id='ods-btn'),
+           id='ods-A', download=DF_NAME+".ods"),
 
      html.A(dbc.Button("XLS", color="success", id='xls-btn'),
            id='xls-A', download=DF_NAME+".xlsx"),
@@ -124,6 +125,21 @@ def update_download_xls(n_clicks):
     # https://en.wikipedia.org/wiki/Data_URI_scheme
     media_type = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
     data = base64.b64encode(xlsx_io.read()).decode("utf-8")
+    href_data_downloadable = f'data:{media_type};base64,{data}'
+    return href_data_downloadable
+
+@app.callback(
+    Output(component_id='ods-A', component_property='href'),
+    [Input(component_id='ods-btn', component_property='n_clicks')])
+def update_download_ods(n_clicks):
+    ods_io = io.BytesIO()
+    writer = pd.ExcelWriter(ods_io, engine='odf')
+    df.to_excel(writer, sheet_name=DF_NAME)
+    writer.save()
+    ods_io.seek(0)
+    # https://en.wikipedia.org/wiki/Data_URI_scheme
+    media_type = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    data = base64.b64encode(ods_io.read()).decode("utf-8")
     href_data_downloadable = f'data:{media_type};base64,{data}'
     return href_data_downloadable
 

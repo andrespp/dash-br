@@ -11,4 +11,5 @@ dependencies:
     - dash-daq
     - dash-auth
     - dash-bootstrap-components
+    - odfpy
     - uetl==0.0.6
