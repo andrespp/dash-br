@@ -38,13 +38,13 @@ columns_counter = daq.LEDDisplay(id='template-attr-counter',
                              labelPosition='bottom',
                              value="0")
 download_buttons = dbc.ButtonGroup(
-    [html.A(dbc.Button("CSV", color="success", id='csv-btn'),
+    [html.A(dbc.Button("CSV", color="success", id='template-csv-btn'),
            id='template-csv-A', download=DF_NAME+".csv"),
 
-     html.A(dbc.Button("ODS", color="success", id='ods-btn'),
+     html.A(dbc.Button("ODS", color="success", id='template-ods-btn'),
            id='template-ods-A', download=DF_NAME+".ods"),
 
-     html.A(dbc.Button("XLS", color="success", id='xls-btn'),
+     html.A(dbc.Button("XLS", color="success", id='template-xls-btn'),
            id='template-xls-A', download=DF_NAME+".xlsx"),
 
     ],
@@ -73,8 +73,8 @@ layout = [
 
 ###############################################################################
 # Callbacks
-@app.callback(Output(component_id='template-table-obj', component_property='children'),
-             [Input(component_id='csv-btn', component_property='n_clicks'),])
+@app.callback(Output('template-table-obj', 'children'),
+             [Input('template-csv-btn', 'n_clicks'),])
 def update_table_object(n_clicks):
 
     # Parse parameters
