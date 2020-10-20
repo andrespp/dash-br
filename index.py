@@ -6,6 +6,7 @@ from dash.dependencies import Input, Output
 from app import app, config, DWO
 from apps import home
 from apps import template
+from apps import dim_municipio
 
 # Header
 header = html.H3(#config['SITE']['HEADER'],
@@ -31,7 +32,7 @@ navbar = dbc.NavbarSimple(
         # Dimensões
         dbc.DropdownMenu(
             children=[
-                dbc.DropdownMenuItem("dim-município", href="#"),
+                dbc.DropdownMenuItem("dim-municipio", href="/dim_municipio"),
             ],
             nav=True,
             in_navbar=True,
@@ -102,6 +103,7 @@ def display_page(pathname):
     switcher = {
         '/': home.layout,
         '/template': template.layout,
+        '/dim_municipio': dim_municipio.layout,
     }
     return switcher.get(pathname, err)
 
