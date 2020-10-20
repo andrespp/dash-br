@@ -28,28 +28,28 @@ DF_NAME='template'
 
 ###############################################################################
 # Layout Objects
-reg_counter = daq.LEDDisplay(id='reg-counter',
+reg_counter = daq.LEDDisplay(id='template-reg-counter',
                              label="Registros",
                              labelPosition='bottom',
                              value="0")
 
-columns_counter = daq.LEDDisplay(id='attr-counter',
+columns_counter = daq.LEDDisplay(id='template-attr-counter',
                              label="Atributos",
                              labelPosition='bottom',
                              value="0")
 download_buttons = dbc.ButtonGroup(
     [html.A(dbc.Button("CSV", color="success", id='csv-btn'),
-           id='csv-A', download=DF_NAME+".csv"),
+           id='template-csv-A', download=DF_NAME+".csv"),
 
      html.A(dbc.Button("ODS", color="success", id='ods-btn'),
-           id='ods-A', download=DF_NAME+".ods"),
+           id='template-ods-A', download=DF_NAME+".ods"),
 
      html.A(dbc.Button("XLS", color="success", id='xls-btn'),
-           id='xls-A', download=DF_NAME+".xlsx"),
+           id='template-xls-A', download=DF_NAME+".xlsx"),
 
     ],
 )
-table_object = html.Div(id='table-obj')
+table_object = html.Div(id='template-table-obj')
 
 ###############################################################################
 # Dasboard layout
@@ -73,7 +73,7 @@ layout = [
 
 ###############################################################################
 # Callbacks
-@app.callback(Output(component_id='table-obj', component_property='children'),
+@app.callback(Output(component_id='template-table-obj', component_property='children'),
              [Input(component_id='csv-btn', component_property='n_clicks'),])
 def update_table_object(n_clicks):
 
@@ -93,19 +93,19 @@ def update_table_object(n_clicks):
 
     return figure
 
-@app.callback(Output(component_id='reg-counter', component_property='value'),
-             [Input(component_id='csv-btn', component_property='n_clicks'),])
+@app.callback(Output('template-reg-counter', 'value'),
+             [Input('template-csv-btn', 'n_clicks'),])
 def update_reg_counter(n_clicks):
     return str(len(df))
 
-@app.callback(Output(component_id='attr-counter', component_property='value'),
-             [Input(component_id='csv-btn', component_property='n_clicks'),])
+@app.callback(Output('template-attr-counter', 'value'),
+             [Input('template-csv-btn', 'n_clicks'),])
 def update_attr_counter(n_clicks):
     return str(len(df.columns))
 
 @app.callback(
-    Output(component_id='csv-A', component_property='href'),
-    [Input(component_id='csv-btn', component_property='n_clicks')])
+    Output('template-csv-A', 'href'),
+    [Input('template-csv-btn', 'n_clicks')])
 def update_download_csv(n_clicks):
 
     # Export CVS
@@ -114,8 +114,8 @@ def update_download_csv(n_clicks):
     return csv_string
 
 @app.callback(
-    Output(component_id='xls-A', component_property='href'),
-    [Input(component_id='xls-btn', component_property='n_clicks')])
+    Output('template-xls-A', 'href'),
+    [Input('template-xls-btn', 'n_clicks')])
 def update_download_xls(n_clicks):
     xlsx_io = io.BytesIO()
     writer = pd.ExcelWriter(xlsx_io, engine='xlsxwriter')
@@ -129,8 +129,8 @@ def update_download_xls(n_clicks):
     return href_data_downloadable
 
 @app.callback(
-    Output(component_id='ods-A', component_property='href'),
-    [Input(component_id='ods-btn', component_property='n_clicks')])
+    Output('template-ods-A', 'href'),
+    [Input('template-ods-btn', 'n_clicks')])
 def update_download_ods(n_clicks):
     ods_io = io.BytesIO()
     writer = pd.ExcelWriter(ods_io, engine='odf')
