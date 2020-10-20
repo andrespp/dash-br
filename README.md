@@ -10,7 +10,7 @@ Ferramenta de visualização do [DW-BRA](https://github.com/andrespp/dw-bra/).
 ### Clone do Repositório
 
 ```bash
-$ git clone https://github.com/andrespp/
+$ git clone https://github.com/andrespp/dash-bra.git
 ```
 
 ### Configurar os parâmetros de conexões
