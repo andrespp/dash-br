@@ -11,7 +11,7 @@ import pandas as pd
 from app import app, DWO
 from dash.dependencies import Input, Output
 
-DF_NAME='dim_municipio'
+DF_NAME='fato_av_ppg'
 
 ###############################################################################
 # Settings
@@ -21,28 +21,28 @@ DF_NAME='dim_municipio'
 
 ###############################################################################
 # Layout Objects
-reg_counter = daq.LEDDisplay(id='dim_municipio-reg-counter',
+reg_counter = daq.LEDDisplay(id='fato_av_ppg-reg-counter',
                              label="Registros",
                              labelPosition='bottom',
                              value="0")
 
-columns_counter = daq.LEDDisplay(id='dim_municipio-attr-counter',
+columns_counter = daq.LEDDisplay(id='fato_av_ppg-attr-counter',
                              label="Atributos",
                              labelPosition='bottom',
                              value="0")
 download_buttons = dbc.ButtonGroup(
-    [html.A(dbc.Button("CSV", color="success", id='dim_municipio-csv-btn'),
-           id='dim_municipio-csv-A', download=DF_NAME+".csv"),
+    [html.A(dbc.Button("CSV", color="success", id='fato_av_ppg-csv-btn'),
+           id='fato_av_ppg-csv-A', download=DF_NAME+".csv"),
 
-     html.A(dbc.Button("ODS", color="success", id='dim_municipio-ods-btn'),
-           id='dim_municipio-ods-A', download=DF_NAME+".ods"),
+     html.A(dbc.Button("ODS", color="success", id='fato_av_ppg-ods-btn'),
+           id='fato_av_ppg-ods-A', download=DF_NAME+".ods"),
 
-     html.A(dbc.Button("XLS", color="success", id='dim_municipio-xls-btn'),
-           id='dim_municipio-xls-A', download=DF_NAME+".xlsx"),
+     html.A(dbc.Button("XLS", color="success", id='fato_av_ppg-xls-btn'),
+           id='fato_av_ppg-xls-A', download=DF_NAME+".xlsx"),
 
     ],
 )
-table_object = html.Div(id='dim_municipio-table-obj')
+table_object = html.Div(id='fato_av_ppg-table-obj')
 
 ###############################################################################
 # Dasboard layout
@@ -66,14 +66,14 @@ layout = [
 
 ###############################################################################
 # Callbacks
-@app.callback(Output('dim_municipio-table-obj', 'children'),
-             [Input('dim_municipio-csv-btn', 'n_clicks'),])
+@app.callback(Output('fato_av_ppg-table-obj', 'children'),
+             [Input('fato_av_ppg-csv-btn', 'n_clicks'),])
 def update_table_object(n_clicks):
 
     # Parse parameters
 
     # Lookup data
-    df = lookup_data(DWO)
+    #df = lookup_data(DWO)
 
     # Plotly Table object
     figure = dash_table.DataTable(
@@ -92,19 +92,19 @@ def update_table_object(n_clicks):
 
     return figure
 
-@app.callback(Output('dim_municipio-reg-counter', 'value'),
-             [Input('dim_municipio-csv-btn', 'n_clicks'),])
+@app.callback(Output('fato_av_ppg-reg-counter', 'value'),
+             [Input('fato_av_ppg-csv-btn', 'n_clicks'),])
 def update_reg_counter(n_clicks):
-    return str(len(df))
+    return str(df_len)
 
-@app.callback(Output('dim_municipio-attr-counter', 'value'),
-             [Input('dim_municipio-csv-btn', 'n_clicks'),])
+@app.callback(Output('fato_av_ppg-attr-counter', 'value'),
+             [Input('fato_av_ppg-csv-btn', 'n_clicks'),])
 def update_attr_counter(n_clicks):
     return str(len(df.columns))
 
 @app.callback(
-    Output('dim_municipio-csv-A', 'href'),
-    [Input('dim_municipio-csv-btn', 'n_clicks')])
+    Output('fato_av_ppg-csv-A', 'href'),
+    [Input('fato_av_ppg-csv-btn', 'n_clicks')])
 def update_download_csv(n_clicks):
 
     # Export CVS
@@ -113,8 +113,8 @@ def update_download_csv(n_clicks):
     return csv_string
 
 @app.callback(
-    Output('dim_municipio-xls-A', 'href'),
-    [Input('dim_municipio-xls-btn', 'n_clicks')])
+    Output('fato_av_ppg-xls-A', 'href'),
+    [Input('fato_av_ppg-xls-btn', 'n_clicks')])
 def update_download_xls(n_clicks):
     xlsx_io = io.BytesIO()
     writer = pd.ExcelWriter(xlsx_io, engine='xlsxwriter')
@@ -128,8 +128,8 @@ def update_download_xls(n_clicks):
     return href_data_downloadable
 
 @app.callback(
-    Output('dim_municipio-ods-A', 'href'),
-    [Input('dim_municipio-ods-btn', 'n_clicks')])
+    Output('fato_av_ppg-ods-A', 'href'),
+    [Input('fato_av_ppg-ods-btn', 'n_clicks')])
 def update_download_ods(n_clicks):
     ods_io = io.BytesIO()
     writer = pd.ExcelWriter(ods_io, engine='odf')
@@ -144,16 +144,19 @@ def update_download_ods(n_clicks):
 
 ###############################################################################
 # Data lookup functions
-def lookup_data(data_src, since=0, until=0):
+def lookup_data(data_src, since=0, until=0, limit=100):
 
     # Lookup data
-    #df = pd.DataFrame(data_src)
-    df = DWO.query("select * from dim_municipio")
+    df_len = DWO.query("SELECT COUNT(*) FROM FATO_CAPES_AVALIACAO_PPG")
+    df_len = df_len.iloc[0]['count']
+
+    df = DWO.query(f"SELECT * FROM FATO_CAPES_AVALIACAO_PPG LIMIT {limit}")
 
     # Transform data
+    # Lookup data
 
-    return df
+    return (df, df_len)
 
 ###############################################################################
 # DASBOARD DATA LOOKUP
-df = lookup_data(DWO)
+df, df_len = lookup_data(DWO)

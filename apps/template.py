@@ -83,12 +83,12 @@ def update_table_object(n_clicks):
     #df = lookup_data(sample)
 
     # Plotly Table object
-    figure = dash_table.DataTable()
     figure = dash_table.DataTable(
         id='table',
         columns=[{"name": i, "id": i} for i in df.columns],
         data=df.to_dict('records'),
         style_cell={'textAlign': 'center'},
+        style_table={'overflowX': 'auto'},
     )
 
     return figure

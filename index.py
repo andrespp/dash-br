@@ -7,6 +7,7 @@ from app import app, config, DWO
 from apps import home
 from apps import template
 from apps import dim_municipio
+from apps import fato_av_ppg
 
 # Header
 header = html.H3(#config['SITE']['HEADER'],
@@ -56,7 +57,7 @@ navbar = dbc.NavbarSimple(
         dbc.DropdownMenu(
             children=[
                 dbc.DropdownMenuItem("CAPES", header=True),
-                dbc.DropdownMenuItem("Avaliação Pós", href="#"),
+                dbc.DropdownMenuItem("Avaliação Pós", href="/fato_av_ppg"),
                 dbc.DropdownMenuItem("MEC", header=True),
                 dbc.DropdownMenuItem("Cursos de Graduação", href="#"),
             ],
@@ -104,6 +105,7 @@ def display_page(pathname):
         '/': home.layout,
         '/template': template.layout,
         '/dim_municipio': dim_municipio.layout,
+        '/fato_av_ppg': fato_av_ppg.layout,
     }
     return switcher.get(pathname, err)
 
