@@ -11,38 +11,72 @@ import pandas as pd
 from app import app, DWO
 from dash.dependencies import Input, Output
 
-DF_NAME='fato_av_ppg'
-
 ###############################################################################
 # Settings
+DF_NAME='fato_av_ppg'
+TABLE_NAME='FATO_CAPES_AVALIACAO_PPG'
+PREVIEW=1000
+
+###############################################################################
+# Data lookup functions
+def lookup_data(data_src, since=0, until=0, limit=100):
+
+    # Lookup data
+    df_len = DWO.query(f"SELECT COUNT(*) FROM {TABLE_NAME}")
+    df_len = df_len.iloc[0]['count']
+
+    df = DWO.query(f"SELECT * FROM {TABLE_NAME} LIMIT {limit}")
+
+    # Transform data
+    # Lookup data
+
+    return (df, df_len)
+
+###############################################################################
+# DASBOARD DATA LOOKUP
+df, df_len = lookup_data(DWO)
 
 ###############################################################################
 # Input Objects (parameters)
 
 ###############################################################################
 # Layout Objects
-reg_counter = daq.LEDDisplay(id='fato_av_ppg-reg-counter',
+reg_counter = daq.LEDDisplay(id=DF_NAME+'-reg-counter',
                              label="Registros",
                              labelPosition='bottom',
                              value="0")
 
-columns_counter = daq.LEDDisplay(id='fato_av_ppg-attr-counter',
+columns_counter = daq.LEDDisplay(id=DF_NAME+'-attr-counter',
                              label="Atributos",
                              labelPosition='bottom',
                              value="0")
 download_buttons = dbc.ButtonGroup(
-    [html.A(dbc.Button("CSV", color="success", id='fato_av_ppg-csv-btn'),
-           id='fato_av_ppg-csv-A', download=DF_NAME+".csv"),
+    [html.A(dbc.Button("CSV", color="success", id=DF_NAME+'-csv-btn'),
+           id=DF_NAME+'-csv-A', download=DF_NAME+".csv"),
 
-     html.A(dbc.Button("ODS", color="success", id='fato_av_ppg-ods-btn'),
-           id='fato_av_ppg-ods-A', download=DF_NAME+".ods"),
+     html.A(dbc.Button("ODS", color="success", id=DF_NAME+'-ods-btn'),
+           id=DF_NAME+'-ods-A', download=DF_NAME+".ods"),
 
-     html.A(dbc.Button("XLS", color="success", id='fato_av_ppg-xls-btn'),
-           id='fato_av_ppg-xls-A', download=DF_NAME+".xlsx"),
+     html.A(dbc.Button("XLS", color="success", id=DF_NAME+'-xls-btn'),
+           id=DF_NAME+'-xls-A', download=DF_NAME+".xlsx"),
 
     ],
 )
-table_object = html.Div(id='fato_av_ppg-table-obj')
+filter_form_object = dbc.FormGroup([
+
+    dbc.Label(f'Preview {PREVIEW if PREVIEW <= df_len else df_len} registros',
+              id=DF_NAME+'-slider-label',
+              html_for=DF_NAME+'-slider'
+             ),
+
+    dcc.Slider(id=DF_NAME+'-slider',
+               min=1,
+               max=df_len,
+               value=PREVIEW if PREVIEW <= df_len else df_len
+              ),
+])
+
+table_object = html.Div(id=DF_NAME+'-table-obj')
 
 ###############################################################################
 # Dasboard layout
@@ -58,22 +92,27 @@ layout = [
               dbc.Col(html.Div(download_buttons),
                       className='d-flex align-items-center justify-content-center'
                      ),
+    ]),
+
+    # Filters form row
+    dbc.Row([dbc.Col(filter_form_object)
             ]),
 
     # Table row
-    dbc.Row([dbc.Col(table_object)]),
+    dbc.Row([dbc.Col(table_object)
+            ]),
 ]
 
 ###############################################################################
 # Callbacks
-@app.callback(Output('fato_av_ppg-table-obj', 'children'),
-             [Input('fato_av_ppg-csv-btn', 'n_clicks'),])
-def update_table_object(n_clicks):
+@app.callback(Output(DF_NAME+'-table-obj', 'children'),
+             [Input(DF_NAME+'-slider', 'value'),])
+def update_table_object(value):
 
     # Parse parameters
 
     # Lookup data
-    #df = lookup_data(DWO)
+    df, df_len = lookup_data(DWO, limit=value)
 
     # Plotly Table object
     figure = dash_table.DataTable(
@@ -92,19 +131,24 @@ def update_table_object(n_clicks):
 
     return figure
 
-@app.callback(Output('fato_av_ppg-reg-counter', 'value'),
-             [Input('fato_av_ppg-csv-btn', 'n_clicks'),])
+@app.callback(Output(DF_NAME+'-slider-label', 'children'),
+             [Input(DF_NAME+'-slider', 'value'),])
+def update_slider_object(value):
+    return f'Preview {value if value <= df_len else df_len} registros'
+
+@app.callback(Output(DF_NAME+'-reg-counter', 'value'),
+             [Input(DF_NAME+'-csv-btn', 'n_clicks'),])
 def update_reg_counter(n_clicks):
     return str(df_len)
 
-@app.callback(Output('fato_av_ppg-attr-counter', 'value'),
-             [Input('fato_av_ppg-csv-btn', 'n_clicks'),])
+@app.callback(Output(DF_NAME+'-attr-counter', 'value'),
+             [Input(DF_NAME+'-csv-btn', 'n_clicks'),])
 def update_attr_counter(n_clicks):
     return str(len(df.columns))
 
 @app.callback(
-    Output('fato_av_ppg-csv-A', 'href'),
-    [Input('fato_av_ppg-csv-btn', 'n_clicks')])
+    Output(DF_NAME+'-csv-A', 'href'),
+    [Input(DF_NAME+'-csv-btn', 'n_clicks')])
 def update_download_csv(n_clicks):
 
     # Export CVS
@@ -113,8 +157,8 @@ def update_download_csv(n_clicks):
     return csv_string
 
 @app.callback(
-    Output('fato_av_ppg-xls-A', 'href'),
-    [Input('fato_av_ppg-xls-btn', 'n_clicks')])
+    Output(DF_NAME+'-xls-A', 'href'),
+    [Input(DF_NAME+'-xls-btn', 'n_clicks')])
 def update_download_xls(n_clicks):
     xlsx_io = io.BytesIO()
     writer = pd.ExcelWriter(xlsx_io, engine='xlsxwriter')
@@ -128,8 +172,8 @@ def update_download_xls(n_clicks):
     return href_data_downloadable
 
 @app.callback(
-    Output('fato_av_ppg-ods-A', 'href'),
-    [Input('fato_av_ppg-ods-btn', 'n_clicks')])
+    Output(DF_NAME+'-ods-A', 'href'),
+    [Input(DF_NAME+'-ods-btn', 'n_clicks')])
 def update_download_ods(n_clicks):
     ods_io = io.BytesIO()
     writer = pd.ExcelWriter(ods_io, engine='odf')
@@ -142,21 +186,3 @@ def update_download_ods(n_clicks):
     href_data_downloadable = f'data:{media_type};base64,{data}'
     return href_data_downloadable
 
-###############################################################################
-# Data lookup functions
-def lookup_data(data_src, since=0, until=0, limit=100):
-
-    # Lookup data
-    df_len = DWO.query("SELECT COUNT(*) FROM FATO_CAPES_AVALIACAO_PPG")
-    df_len = df_len.iloc[0]['count']
-
-    df = DWO.query(f"SELECT * FROM FATO_CAPES_AVALIACAO_PPG LIMIT {limit}")
-
-    # Transform data
-    # Lookup data
-
-    return (df, df_len)
-
-###############################################################################
-# DASBOARD DATA LOOKUP
-df, df_len = lookup_data(DWO)
