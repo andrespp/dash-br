@@ -8,6 +8,7 @@ from apps import home
 from apps import template
 from apps import dim_municipio
 from apps import fato_av_ppg
+from apps import fato_rais
 
 # Header
 header = html.H3(#config['SITE']['HEADER'],
@@ -43,7 +44,7 @@ navbar = dbc.NavbarSimple(
         dbc.DropdownMenu(
             children=[
                 dbc.DropdownMenuItem("MTE", header=True),
-                dbc.DropdownMenuItem("RAIS", href="#"),
+                dbc.DropdownMenuItem("RAIS", href="/rais"),
                 dbc.DropdownMenuItem("CAGED", href="#"),
                 dbc.DropdownMenuItem("IBGE", header=True),
                 dbc.DropdownMenuItem("IPCA", href="#"),
@@ -103,9 +104,10 @@ def display_page(pathname):
     err= html.Div([html.P('Page not found!')])
     switcher = {
         '/': home.layout,
-        '/template': template.layout,
         '/dim_municipio': dim_municipio.layout,
         '/fato_av_ppg': fato_av_ppg.layout,
+        '/rais': fato_rais.layout,
+        '/template': template.layout,
     }
     return switcher.get(pathname, err)
 
