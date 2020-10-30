@@ -1,11 +1,17 @@
 name: dash-dwbra
 
+channels:
+  - conda-forge
+  - defaults
+
 dependencies:
   - python=3.8
   - dash-core-components
   - dash-html-components
   - dash-renderer
   - dash-table
+  - pip
+  - sqlalchemy_schemadisplay
   - xlsxwriter
   - pip:
     - dash-daq
