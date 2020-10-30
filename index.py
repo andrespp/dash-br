@@ -6,7 +6,7 @@ from dash.dependencies import Input, Output
 from app import app, config, DWO
 from apps import home
 from apps import schema
-from apps import template
+#from apps import template
 from apps import dim_municipio
 from apps import fato_av_ppg
 from apps import fato_rais
@@ -31,7 +31,7 @@ navbar = dbc.NavbarSimple(
         # Dcc Location
         dcc.Location(id='url', refresh=False),
 
-        dbc.NavLink("Template", href="/template"),
+        #dbc.NavLink("Template", href="/template"),
         dbc.NavLink("Schema", href="/schema"),
         # Dimensões
         dbc.DropdownMenu(
@@ -110,7 +110,7 @@ def display_page(pathname):
         '/fato_av_ppg': fato_av_ppg.layout,
         '/rais': fato_rais.layout,
         '/schema': schema.layout,
-        '/template': template.layout,
+        #'/template': template.layout,
     }
     return switcher.get(pathname, err)
 
