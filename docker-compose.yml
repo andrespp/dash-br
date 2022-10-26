@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+
+  # bi.kapmed.com.br
+
+  dash-kapmed:
+    image: dash-kapmed
+    container_name: dash-kapmed
+    restart: unless-stopped
+    volumes:
+     - ./:/usr/src/app
+    ports:
+     - "8050:8050"
+    environment:
+      - TZ=America/Belem
+

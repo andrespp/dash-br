@@ -2,6 +2,7 @@
 """
 import dash
 import dash_auth
+import dash
 import dash_core_components as dcc
 import dash_bootstrap_components as dbc
 import configparser
@@ -44,7 +45,17 @@ else:
 
 ## Dash app object (flask application)
 THEME = dbc.themes.BOOTSTRAP
-app = dash.Dash(__name__, external_stylesheets=[THEME])
+#ICONS = dbc.icons.BOOTSTRAP
+ICONS = dbc.icons.FONT_AWESOME
+app = dash.Dash(__name__,
+                external_stylesheets=[THEME, ICONS],
+                 meta_tags=[{'name': 'viewport',
+                             'content': 'width=device-width, \
+                                         initial-scale=0.8,  \
+                                         maximum-scale=1.0,  \
+                                         minimum-scale=0.5,'
+                            }]
+               )
 app.config.suppress_callback_exceptions=True
 
 # Basic Authentication
@@ -57,4 +68,7 @@ if config['SITE']['LOG']=='True':
 else:
     VERBOSE=False
 
-print(f"Dash version is {dcc.__version__}")
+print(f"Dash v{dash.__version__}.\n" \
+      f"DCC v{dcc.__version__}.\n" \
+      f"DBC v{dbc.__version__}")
+

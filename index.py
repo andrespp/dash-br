@@ -1,76 +1,62 @@
-import dash
 import dash_bootstrap_components as dbc
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import html, dcc
 from dash.dependencies import Input, Output
-from app import app, config, DWO
-from apps import home
+from app import app, config
+from apps import dwtable
 from apps import schema
-#from apps import template
-from apps import dim_municipio
-from apps import fato_av_ppg
-from apps import fato_rais
+from apps import home
 
 # Header
 header = html.H3(#config['SITE']['HEADER'],
             style={"height":"62px",
-                   "text-color":"white",
                    "background-image":"linear-gradient(#006600, #cccc00)",
-                   "margin": "0",
-                   "text-align":"center",
-                   "font-family":"Verdana",
-                   "font-size":"1.8em",
-                   "font-weight":"100",
+                   #"background-image":"linear-gradient(#166c67, #00b68b)",
                    },
-                className="align-middle text-white",
+                className="p-3 m-0 text-white text-center",
                )
 
 # Navbar
-navbar = dbc.NavbarSimple(
-    children=[
+navbar = dbc.NavbarSimple([
         # Dcc Location
         dcc.Location(id='url', refresh=False),
 
-        #dbc.NavLink("Template", href="/template"),
-        dbc.NavLink("Schema", href="/schema"),
-        # Dimensões
+        # Saúde
         dbc.DropdownMenu(
             children=[
-                dbc.DropdownMenuItem("dim-municipio", href="/dim_municipio"),
+                dbc.DropdownMenuItem("DATASETS", header=True),
+                dbc.DropdownMenuItem("DataSUS", href="/datasus"),
             ],
             nav=True,
             in_navbar=True,
-            label="Dimensões",
+            label="Saúde",
         ),
         # Economia
         dbc.DropdownMenu(
             children=[
-                dbc.DropdownMenuItem("MTE", header=True),
-                dbc.DropdownMenuItem("RAIS", href="/rais"),
-                dbc.DropdownMenuItem("CAGED", href="#"),
-                dbc.DropdownMenuItem("IBGE", header=True),
-                dbc.DropdownMenuItem("IPCA", href="#"),
-                dbc.DropdownMenuItem("INPC", href="#"),
+                dbc.DropdownMenuItem("DATASETS", header=True),
+                dbc.DropdownMenuItem("CAGED", href="/nfse"),
+                dbc.DropdownMenuItem("RAIS", href="/nfse"),
             ],
             nav=True,
             in_navbar=True,
             label="Economia",
         ),
-        # Educação
+
+        # Data Warehouse
         dbc.DropdownMenu(
             children=[
-                dbc.DropdownMenuItem("CAPES", header=True),
-                dbc.DropdownMenuItem("Avaliação Pós", href="/fato_av_ppg"),
-                dbc.DropdownMenuItem("MEC", header=True),
-                dbc.DropdownMenuItem("Cursos de Graduação", href="#"),
+                dbc.DropdownMenuItem("Aux", header=True),
+                dbc.DropdownMenuItem("Schema", href="/schema"),
+                dbc.DropdownMenuItem("Tables", href="/dwtables"),
             ],
             nav=True,
             in_navbar=True,
-            label="Educação",
+            label="Data Warehouse",
         ),
     ],
     brand = "Início",
     brand_href='/',
+    className='p-0',
 )
 
 # Content
@@ -79,24 +65,32 @@ content = html.Div(id='page-content')
 # Dash App's layout
 app.title = config['SITE']['TITLE']
 
-app.layout = html.Div([
+app.layout = dbc.Container([
 
-    # Header
-    dbc.Row(dbc.Col(header)
+    # Header Row
+    dbc.Row(
+
+        dbc.Col(header,
+                className='p-0',
+                width={'size':12, 'offset':0},
+               ),
+            className='mt-3',
+
            ),
 
     # Navbar
-    dbc.Row(dbc.Col(navbar),
+    dbc.Row(dbc.Col(navbar,
+                    className='p-0',
+                    width={'size':12, 'offset':0},
+                   ),
            ),
 
     # Contents
     html.Div(id='page-content',
+            className='mt-2'
             ),
 
-    ],
-
-    style={"width":"80%", "margin":"0px auto", "padding-top":"20px",}
-)
+],fluid=False)
 
 ###############################################################################
 # Callbacks
@@ -106,11 +100,8 @@ def display_page(pathname):
     err= html.Div([html.P('Page not found!')])
     switcher = {
         '/': home.layout,
-        '/dim_municipio': dim_municipio.layout,
-        '/fato_av_ppg': fato_av_ppg.layout,
-        '/rais': fato_rais.layout,
+        '/dwtables': dwtable.layout,
         '/schema': schema.layout,
-        #'/template': template.layout,
     }
     return switcher.get(pathname, err)
 

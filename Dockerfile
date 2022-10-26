@@ -18,7 +18,8 @@ RUN rm /etc/localtime && \
     update-locale LANG=en_US.UTF-8 LC_MONETARY=pt_BR.UTF-8
 
 # Aditional packages
-RUN apt-get -y install unixodbc-dev python3-psycopg2 libpq-dev
+RUN apt-get update && apt-get -y install unixodbc-dev python3-psycopg2  \
+		libpq-dev python3-gv python-pydot python-pydot-ng graphviz
 
 # Setup Conda Environment
 ARG CONDA_ENV_NAME=dash-dwbra
@@ -34,7 +35,9 @@ WORKDIR /usr/src/app
 
 EXPOSE 8050
 
+USER 1000
+
 COPY . .
 
 ENTRYPOINT ["./entrypoint.sh"]
-CMD ["help"]
+CMD ["run"]

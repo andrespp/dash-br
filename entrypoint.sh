@@ -1,12 +1,12 @@
 #!/bin/bash
 
-PROJECT_NAME="Dash-DWBRA's Container"
+PROJECT_NAME="Dash Container"
 
 # Sets script to fail if any command fails.
 set -e
 
 run_app() {
-	python etl.py
+	python index.py
 }
 
 print_usage() {

@@ -10,12 +10,14 @@ dependencies:
   - dash-html-components
   - dash-renderer
   - dash-table
+  - dash
   - pip
   - sqlalchemy_schemadisplay
+  - unidecode
   - xlsxwriter
   - pip:
     - dash-daq
     - dash-auth
     - dash-bootstrap-components
     - odfpy
-    - uetl==0.0.6
+    - uetl==0.0.9

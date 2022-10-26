@@ -1,4 +1,5 @@
 IMAGE_NAME=dash-dwbra
+PORT=8050
 
 .PHONY: help
 help:
@@ -21,7 +22,7 @@ setup: Dockerfile
 
 .PHONY: run
 run:
-	docker run -d --rm --name $(IMAGE_NAME) -v $(PWD):/usr/src/app -p 8050:8050 $(IMAGE_NAME) python index.py
+	docker run -d --rm --name $(IMAGE_NAME) -v $(PWD):/usr/src/app -p $(PORT):8050 $(IMAGE_NAME) python index.py
 
 .PHONY: stop
 stop:

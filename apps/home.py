@@ -1,21 +1,38 @@
 """home.py
 """
-import dash
 import dash_bootstrap_components as dbc
-import dash_html_components as html
+from dash import dcc, html
 
-layout = dbc.Jumbotron(
-    [
-        html.H3("Painel DW-Bra", className="display-3"),
-        html.Hr(className="my-2"),
-        html.P(
-            "Ferramenta de visualização de dados do Data Warehouse DW-Bra.",
-        ),
-        html.P(dbc.Button("Mais Informações",
-                          color="primary",
-                          href="https://github.com/andrespp/dw-bra",
-                          external_link=True,
-                         )
-               , className="lead"),
-    ]
+jumbotron = html.Div(
+    dbc.Container(
+        [
+            html.H1("Painel DW-BRA", className="display-3"),
+            html.P("",
+                className="lead",
+            ),
+            html.Hr(className="my-2"),
+            html.P(
+                "Ferramenta de visualização de dados do Data Warehouse DW-Bra.",
+                className="lead",
+            ),
+            html.P(
+                dbc.Button(
+                    "Mais Informações",
+                    color="success",
+                    href="https://github.com/andrespp/dw-bra",
+                    external_link=True,
+                    target='_blank',
+                ),
+            ),
+        ],
+        fluid=True,
+        className="py-3",
+    ),
+    className="p-3 bg-light rounded-3",
 )
+
+layout = dbc.Row([
+    dbc.Col([
+        jumbotron
+    ], className='p-0', width=12)
+])
