@@ -51,5 +51,5 @@ layout = [
 def update_layout(table):
 
     if table:
-        return mod_dw.Table(table, PREVIEW)
+        return mod_dw.Table(DWO, table, PREVIEW)
 

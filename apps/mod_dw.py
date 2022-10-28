@@ -6,27 +6,70 @@ import base64
 import io
 import pandas as pd
 import traceback
-from app import app, DWO
+from app import app
 from dash.dependencies import Input, Output, State
 from dash import dash_table
 from dash import dcc, html
+from uetl import DataWarehouse
+from dask_sql import Context
 
 ###############################################################################
 # Data lookup functions
-def lookup_data(data_src, table, since=0, until=0, limit=None, len_only=False):
+def lookup_data(dw, table, limit=None, len_only=False):
+    if isinstance(dw, DataWarehouse):
+        print('UETL DW!')
+        return lookup_data_uetl(
+            dw, table=table, limit=limit, len_only=len_only,
+        )
+    elif isinstance(dw, Context):
+        print('DASK-SQL DW!')
+        return lookup_data_dasksql(
+            dw, table=table, limit=limit, len_only=len_only,
+        )
+    else:
+        print('Invalid DW!')
+        return None, None
+
+def lookup_data_uetl(dw, table, limit=None, len_only=False):
 
     try:
         # Lookup data
-        df_len = DWO.query(f"SELECT COUNT(*) FROM {table}")
+        df_len = dw.query(f"SELECT COUNT(*) FROM {table}")
         df_len = df_len.iloc[0]['count']
 
         if len_only:
             return None, df_len
 
         if limit:
-            df = DWO.query(f"SELECT * FROM {table} LIMIT {limit}")
+            df = dw.query(f"SELECT * FROM {table} LIMIT {limit}")
         else:
-            df = DWO.query(f"SELECT * FROM {table}")
+            df = dw.query(f"SELECT * FROM {table}")
+
+        return (df, df_len)
+
+    except Exception as e:
+
+        traceback.print_exc()
+
+        a = pd.DataFrame([f'unnable to query table {table}.'],
+                         columns=['error'],
+                        )
+        return (a, len(a))
+
+def lookup_data_dasksql(dw, table, limit=None, len_only=False):
+
+    try:
+        # Lookup data
+        df_len = dw.sql(f"SELECT COUNT(*) AS COUNT FROM {table}").compute()
+        df_len = df_len.iloc[0]['count']
+
+        if len_only:
+            return None, df_len
+
+        if limit:
+            df = dw.sql(f"SELECT * FROM {table} LIMIT {limit}").compute()
+        else:
+            df = dw.sql(f"SELECT * FROM {table}").compute()
 
         return (df, df_len)
 
@@ -42,11 +85,14 @@ def lookup_data(data_src, table, since=0, until=0, limit=None, len_only=False):
 ###############################################################################
 # Dasboard layout
 
-def Table(table, limit):
+def Table(dw, table, limit):
     """Generate DWTABLE Layout
 
     Parameters
     ----------
+        dw | object
+            Data Warehouse object (either DWO or DWP)
+
         table | string
             Table name
 
@@ -58,7 +104,7 @@ def Table(table, limit):
         Layout object (a list of dbc.Row() objects)
     """
     # Initial data lookup
-    df, df_len = lookup_data(DWO, table=table, limit=limit)
+    df, df_len = lookup_data(dw, table=table, limit=limit)
 
     # Layout obj
     layout = [

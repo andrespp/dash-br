@@ -7,8 +7,9 @@ import dash_core_components as dcc
 import dash_bootstrap_components as dbc
 import configparser
 import locale
-import os.path
+import os
 import uetl
+import dwbra
 
 ## Settings
 CONFIG_FILE = 'config.ini'
@@ -43,6 +44,9 @@ else:
     print('ERROR: Data Warehouse DB connection failed!')
     exit(-1)
 
+## FULL DW from parquet files
+DWC = dwbra.load_dw(config['FULLDW']['DATADIR'])
+
 ## Dash app object (flask application)
 THEME = dbc.themes.BOOTSTRAP
 #ICONS = dbc.icons.BOOTSTRAP
@@ -72,3 +76,4 @@ print(f"Dash v{dash.__version__}.\n" \
       f"DCC v{dcc.__version__}.\n" \
       f"DBC v{dbc.__version__}")
 
+print(f'dash-sql tables are:\n {DWC.sql("SHOW TABLES").compute()}')
