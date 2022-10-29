@@ -23,6 +23,14 @@ tables = df['table_name'].to_list()
 # Layout Objects
 ###############################################################################
 data = dcc.Store(id=DF_NAME+'-data-store')
+query = dcc.Store(id=DF_NAME+'-query-data-store')
+download_sample = dbc.Button(
+    id=DF_NAME+'-download-sample-btn',
+    children=[html.I(className="fa fa-download mr-1"), "Amostra"],
+    color="secondary",
+    className="mt-1",
+    size='sm',
+),
 table_object = html.Div(id=DF_NAME+'-table1')
 query_object = html.Div(
     [
@@ -38,17 +46,27 @@ query_object = html.Div(
             id=DF_NAME+'-query-btn',
             color="secondary",
             className="me-1",
+            size='sm',
         ),
         dbc.Modal(
             [
                 dbc.ModalHeader(dbc.ModalTitle('Resultado da consulta')),
                 dbc.ModalBody(id=DF_NAME+'-query-results'),
                 dbc.ModalFooter(
-                    dbc.Button(
-                        'Fechar', id=DF_NAME+"-close",
-                        className="ms-auto",
-                        n_clicks=0,
-                        color='secondary',
+                    dbc.ButtonGroup(
+                        [
+                            dbc.Button(
+                                id=DF_NAME+'-download-query-btn',
+                                children=[
+                                    html.I(className="fa fa-download mr-1"),
+                                    "Resultado"
+                                ],
+                                color="secondary",
+                                className="mt-1",
+                                size='sm',
+                            ),
+
+                        ]
                     )
                 ),
             ],
@@ -89,7 +107,23 @@ layout = [
             dbc.Col(
                 dbc.Tabs(
                     [
-                        dbc.Tab(table_object, label="Preview"),
+                        # tab1
+                        dbc.Tab(
+                            [
+                                table_object,
+                                dbc.Row(
+                                    dbc.ButtonGroup(
+                                        [
+                                            html.Div(download_sample),
+                                            # html.Div(refresh_button),
+                                        ]
+                                    )
+                                ),
+
+                            ], label="Preview"
+
+                        ),
+                        # tab2
                         dbc.Tab(query_object, label="SQL Query"),
                     ]
                 ),
@@ -101,7 +135,11 @@ layout = [
     html.Div(id=DF_NAME+'-layout'),
 
     # Stores
-    html.Div([data]),
+    html.Div([data, query]),
+
+    # Download objects
+    dcc.Download(id=DF_NAME+"-download-sample"),
+    dcc.Download(id=DF_NAME+"-download-query"),
 
 ]
 
@@ -220,18 +258,17 @@ def update_table_object(table, data):
 @app.callback(
     Output(DF_NAME+"-query-modal", "is_open"),
     Input(DF_NAME+"-query-btn", "n_clicks"),
-    Input(DF_NAME+"-close", "n_clicks"),
     State(DF_NAME+"-query-modal", "is_open"),
     prevent_initial_call=True,
 )
-def toggle_modal(n1, n2, is_open):
-    if n1 or n2:
+def toggle_modal(n1, is_open):
+    if n1:
         return not is_open
     return is_open
 
 @app.callback(
     Output(DF_NAME+"-query-results", "children"),
-    # Output(DF_NAME+"-query-btn", "n_clicks"),
+    Output(DF_NAME+"-query-data-store", "data"),
     Input(DF_NAME+"-query-btn", "n_clicks"),
     State(DF_NAME+"-query", "value"),
     prevent_initial_call=True,
@@ -251,6 +288,12 @@ def trigger_query(n_clicks, sql):
 
         finally:
 
+            data = {
+                'table':'query',
+                'df_len':len(df),
+                'df':df.to_dict(),
+            }
+
             table =  dash_table.DataTable(
                 df.to_dict('records'),
                 [{"name": i, "id": i} for i in df.columns],
@@ -262,9 +305,48 @@ def trigger_query(n_clicks, sql):
                 style_table={'overflowX': 'auto'},
             )
 
-            if error: return html.Div(error)
-            else: return table
+            if error: return html.Div(error), None
+            else: return table, data
 
 
     else:
-        return None
+        return None, None
+
+@app.callback(
+    Output(DF_NAME+"-download-sample", "data"),
+    Input(DF_NAME+"-download-sample-btn", "n_clicks"),
+    State(DF_NAME+'-data-store', 'data'),
+    prevent_initial_call=True,
+)
+def download_sample_ds(n_clicks, data):
+
+    if n_clicks:
+        # unpack data
+        table, df_len, df = unpack_data(data)
+        df_len
+
+        return dcc.send_data_frame(
+            df.to_excel, f'{table}_sample.xlsx', sheet_name="sheet1"
+        )
+    else:
+        return
+
+@app.callback(
+    Output(DF_NAME+"-download-query", "data"),
+    Input(DF_NAME+"-download-query-btn", "n_clicks"),
+    State(DF_NAME+'-query-data-store', 'data'),
+    prevent_initial_call=True,
+)
+def download_query_data(n_clicks, data):
+
+    if n_clicks:
+        # unpack data
+        table, df_len, df = unpack_data(data)
+        df_len
+
+        return dcc.send_data_frame(
+            df.to_excel, f'{table}.xlsx', sheet_name="sheet1"
+        )
+    else:
+        return
+
