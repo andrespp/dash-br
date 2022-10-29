@@ -1,5 +1,6 @@
 import dash_bootstrap_components as dbc
 import pandas as pd
+import traceback
 from dash import dcc, html, dash_table
 from app import app, DWC
 from apps import mod_dw, mod_indicator
@@ -23,6 +24,41 @@ tables = df['table_name'].to_list()
 ###############################################################################
 data = dcc.Store(id=DF_NAME+'-data-store')
 table_object = html.Div(id=DF_NAME+'-table1')
+query_object = html.Div(
+    [
+        dbc.Textarea(
+            id=DF_NAME+'-query',
+            className="mb-3",
+            placeholder="SELECT * FROM TABLE",
+            rows=10,
+            spellcheck=False,
+        ),
+        dbc.Button(
+            'Enviar',
+            id=DF_NAME+'-query-btn',
+            color="secondary",
+            className="me-1",
+        ),
+        dbc.Modal(
+            [
+                dbc.ModalHeader(dbc.ModalTitle('Resultado da consulta')),
+                dbc.ModalBody(id=DF_NAME+'-query-results'),
+                dbc.ModalFooter(
+                    dbc.Button(
+                        'Fechar', id=DF_NAME+"-close",
+                        className="ms-auto",
+                        n_clicks=0,
+                        color='secondary',
+                    )
+                ),
+            ],
+            id=DF_NAME+"-query-modal",
+            is_open=False,
+            size='xl',
+        ),
+    ],
+    className='pt-2',
+)
 
 ###############################################################################
 # Dasboard layout
@@ -47,8 +83,19 @@ layout = [
     # Indicators Row
     html.Div(id=DF_NAME+'-indicators-row'),
 
-    # Table row
-    dbc.Row([dbc.Col(table_object)]),
+    # Tabs row
+    dbc.Row(
+        [
+            dbc.Col(
+                dbc.Tabs(
+                    [
+                        dbc.Tab(table_object, label="Preview"),
+                        dbc.Tab(query_object, label="SQL Query"),
+                    ]
+                ),
+            )
+        ]
+    ),
 
     # Graph row
     html.Div(id=DF_NAME+'-layout'),
@@ -169,3 +216,55 @@ def update_table_object(table, data):
     )
 
     return table
+
+@app.callback(
+    Output(DF_NAME+"-query-modal", "is_open"),
+    Input(DF_NAME+"-query-btn", "n_clicks"),
+    Input(DF_NAME+"-close", "n_clicks"),
+    State(DF_NAME+"-query-modal", "is_open"),
+    prevent_initial_call=True,
+)
+def toggle_modal(n1, n2, is_open):
+    if n1 or n2:
+        return not is_open
+    return is_open
+
+@app.callback(
+    Output(DF_NAME+"-query-results", "children"),
+    # Output(DF_NAME+"-query-btn", "n_clicks"),
+    Input(DF_NAME+"-query-btn", "n_clicks"),
+    State(DF_NAME+"-query", "value"),
+    prevent_initial_call=True,
+)
+def trigger_query(n_clicks, sql):
+
+    if n_clicks:
+
+        error = None
+
+        try:
+            df =  DWC.sql(sql).compute() # perform query
+
+        except Exception as e:
+            error = f'{e}'
+            df = pd.DataFrame()
+
+        finally:
+
+            table =  dash_table.DataTable(
+                df.to_dict('records'),
+                [{"name": i, "id": i} for i in df.columns],
+                style_as_list_view=True,
+                style_cell={'textAlign': 'center'},
+                sort_action='native',
+                #filter_action='native',
+                page_size=15,
+                style_table={'overflowX': 'auto'},
+            )
+
+            if error: return html.Div(error)
+            else: return table
+
+
+    else:
+        return None
