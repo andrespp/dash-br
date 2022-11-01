@@ -15,9 +15,12 @@ DF_NAME='dwparquet'
 ###############################################################################
 # Data Lookup
 ###############################################################################
-df=DWC.sql("SHOW TABLES").compute()
-df['table_name'] = df['Table'].apply(lambda x: {'label':x, 'value':x})
-tables = df['table_name'].to_list()
+if DWC:
+    df=DWC.sql("SHOW TABLES").compute()
+    df['table_name'] = df['Table'].apply(lambda x: {'label':x, 'value':x})
+    tables = df['table_name'].to_list()
+else:
+    tables = []
 
 ###############################################################################
 # Layout Objects
@@ -92,6 +95,7 @@ layout = [
             dcc.Dropdown(id=DF_NAME+'-dropdown',
                          placeholder='Selecione a Tabela',
                          options=tables,
+                         value=None,
                         ),
 
             xl=4, lg=5, md=6, sm=10, xs=12
@@ -230,7 +234,6 @@ def update_indicators(data):
 
 @app.callback(
     Output(DF_NAME+'-table1', 'children'),
-    # Input(DF_NAME+'-dropdown', 'value'),
     Input(DF_NAME+'-indicators-row', 'children'),
     State(DF_NAME+'-data-store', 'data'),
     prevent_initial_call=True,
@@ -275,12 +278,12 @@ def toggle_modal(n1, is_open):
 )
 def trigger_query(n_clicks, sql):
 
-    if n_clicks:
+    if n_clicks and DWC:
 
         error = None
 
         try:
-            df =  DWC.sql(sql).compute() # perform query
+            df = DWC.sql(sql).compute() # perform query
 
         except Exception as e:
             error = f'{e}'
@@ -307,7 +310,6 @@ def trigger_query(n_clicks, sql):
 
             if error: return html.Div(error), None
             else: return table, data
-
 
     else:
         return None, None

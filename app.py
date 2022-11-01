@@ -45,7 +45,11 @@ else:
     exit(-1)
 
 ## FULL DW from parquet files
-DWC = dwbra.load_dw(config['FULLDW']['DATADIR'])
+try:
+    DWC = dwbra.load_dw(config['FULLDW']['DATADIR'])
+except Exception as e:
+    DWC = None
+    print(f'WARN: Unable to open parquet files. {e}')
 
 ## Dash app object (flask application)
 THEME = dbc.themes.BOOTSTRAP
@@ -76,4 +80,5 @@ print(f"Dash v{dash.__version__}.\n" \
       f"DCC v{dcc.__version__}.\n" \
       f"DBC v{dbc.__version__}")
 
-print(f'dash-sql tables are:\n {DWC.sql("SHOW TABLES").compute()}')
+if DWC:
+    print(f'dash-sql tables are:\n {DWC.sql("SHOW TABLES").compute()}')
