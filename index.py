@@ -1,8 +1,8 @@
 import dash_bootstrap_components as dbc
 from dash import html, dcc
 from dash.dependencies import Input, Output
-from app import app, config
-from apps import dwsample, dwparquet
+from app import app, config, DWC, DWO
+from apps import mod_dw
 from apps import schema
 from apps import home
 
@@ -101,8 +101,8 @@ def display_page(pathname):
     err= html.Div([html.P('Page not found!')])
     switcher = {
         '/': home.layout,
-        '/sampledw': dwsample.layout,
-        '/parquet': dwparquet.layout,
+        '/sampledw': mod_dw.layout(DWO, preview=1000),
+        '/parquet': mod_dw.layout(DWC, preview=100),
         '/schema': schema.layout,
     }
     return switcher.get(pathname, err)
