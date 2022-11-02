@@ -203,6 +203,17 @@ def layout(dw, preview):
         ],
         className='pt-2',
     )
+    modal_attrs = dbc.Modal( # Attributes
+        [
+            dbc.ModalHeader(dbc.ModalTitle('Atributos')),
+            dbc.ModalBody(id="dw-modal-attrs-body"),
+            dbc.ModalFooter(),
+        ],
+        id="dw-modal-attrs",
+        is_open=False,
+        size='lg',
+        scrollable=True,
+    )
 
     # Layout
     layout = [
@@ -225,6 +236,7 @@ def layout(dw, preview):
 
         # Indicators Row
         html.Div(id='dw-indicators-row'),
+        modal_attrs,
 
         # Tabs row
         dbc.Row(
@@ -334,7 +346,7 @@ def update_indicators(data):
     # Indicator 2
     indicator_value = len(df.columns)
     indicator = {}
-    indicator['id']='id2'
+    indicator['id']='attrs'
     indicator['title']='Atributos'
     indicator['value']=indicator_value
     indicator['color']='text-success'
@@ -473,3 +485,71 @@ def download_query_data(n_clicks, data):
     else:
         return
 
+@app.callback(
+    Output('dw-modal-attrs', 'is_open'),
+    Input('attrs-link', 'n_clicks'),
+    State('dw-modal-attrs', 'is_open'),
+    prevent_initial_call=True,
+)
+def toggle_modal_attrs(n1, is_open):
+    """toggle indicators modal
+    """
+    if n1:
+        return not is_open
+    return is_open
+
+@app.callback(
+    Output('dw-modal-attrs-body', 'children'),
+    Input('attrs-link', 'n_clicks'),
+    State('dw-type', 'children'),
+    State('dw-dropdown', 'value'),
+    prevent_initial_call=True,
+)
+def update_modal_attrs(n1, dw_type, table):
+    n1
+
+    # Parse parameters
+
+    if table and dw_type=='sample':
+        DW = DWO
+        sql = f"""
+        SELECT
+           table_name,
+           column_name,
+           data_type
+        FROM
+           information_schema.columns
+        WHERE
+           table_name = '{table}';
+        """
+        df, df_len = lookup_data(DW, query=sql)
+        df_len
+
+    elif table and dw_type=='full':
+        DW = DWC
+        sql = f"""
+        SHOW COLUMNS FROM {table}
+        """
+        df, df_len = lookup_data(DW, query=sql)
+        df['table_name'] = table
+        df = df.rename(
+            columns={
+                'Column':'column_name',
+                'Type':'data_type',
+            }
+        )
+        df = df[['table_name', 'column_name', 'data_type']]
+        df_len
+
+    else:
+        df = pd.DataFrame(columns=['table_name', 'column_name', 'data_type'])
+
+    return dbc.Table.from_dataframe(
+        df,
+        striped=True,
+        bordered=True,
+        hover=True,
+        responsive=True,
+        size='sm',
+        style={'textAlign':'center'},
+    )
