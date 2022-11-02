@@ -2,7 +2,7 @@ import dash_bootstrap_components as dbc
 from dash import html, dcc
 from dash.dependencies import Input, Output
 from app import app, config
-from apps import dwtable, dwparquet
+from apps import dwsample, dwparquet
 from apps import schema
 from apps import home
 
@@ -47,7 +47,7 @@ navbar = dbc.NavbarSimple([
             children=[
                 dbc.DropdownMenuItem("Aux", header=True),
                 dbc.DropdownMenuItem("Schema", href="/schema"),
-                dbc.DropdownMenuItem("Tables (Sample DW)", href="/dwtables"),
+                dbc.DropdownMenuItem("Tables (Sample DW)", href="/sampledw"),
                 dbc.DropdownMenuItem("Tables (Full DW)", href="/parquet"),
             ],
             nav=True,
@@ -101,7 +101,7 @@ def display_page(pathname):
     err= html.Div([html.P('Page not found!')])
     switcher = {
         '/': home.layout,
-        '/dwtables': dwtable.layout,
+        '/sampledw': dwsample.layout,
         '/parquet': dwparquet.layout,
         '/schema': schema.layout,
     }
