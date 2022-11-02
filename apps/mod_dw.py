@@ -148,8 +148,6 @@ def layout(dw, preview):
     tables = lookup_tables(dw)
 
     # Layout Objects
-    data = dcc.Store(id='dw-data-store')
-    query = dcc.Store(id='dw-query-data-store')
     download_sample = dbc.Button(
         id='dw-download-sample-btn',
         children=[html.I(className="fa fa-download mr-1"), "Amostra"],
@@ -207,7 +205,13 @@ def layout(dw, preview):
         [
             dbc.ModalHeader(dbc.ModalTitle('Atributos')),
             dbc.ModalBody(id="dw-modal-attrs-body"),
-            dbc.ModalFooter(),
+            dbc.ModalFooter(
+               dbc.Button(
+                    html.I(className="fa fa-download mr-1"),
+                    id='dw-download-attrs-btn',
+                    color='Secondary',
+                ),
+            ),
         ],
         id="dw-modal-attrs",
         is_open=False,
@@ -272,7 +276,13 @@ def layout(dw, preview):
         html.Div(id='dw-layout'),
 
         # Stores
-        html.Div([data, query]),
+        html.Div(
+            [
+                dcc.Store(id='dw-data-store'),
+                dcc.Store(id='dw-query-data-store'),
+                dcc.Store(id='dw-attrs-data-store'),
+            ]
+        ),
 
         # Hidden div inside the app that stores the intermediate value
         html.Div(dw_type, id='dw-type', style={'display': 'none'}),
@@ -281,6 +291,7 @@ def layout(dw, preview):
         # Download objects
         dcc.Download(id="dw-download-sample"),
         dcc.Download(id="dw-download-query"),
+        dcc.Download(id="dw-download-attrs"),
     ]
 
     return layout
@@ -500,6 +511,7 @@ def toggle_modal_attrs(n1, is_open):
 
 @app.callback(
     Output('dw-modal-attrs-body', 'children'),
+    Output('dw-attrs-data-store', 'data'),
     Input('attrs-link', 'n_clicks'),
     State('dw-type', 'children'),
     State('dw-dropdown', 'value'),
@@ -544,7 +556,7 @@ def update_modal_attrs(n1, dw_type, table):
     else:
         df = pd.DataFrame(columns=['table_name', 'column_name', 'data_type'])
 
-    return dbc.Table.from_dataframe(
+    body = dbc.Table.from_dataframe(
         df,
         striped=True,
         bordered=True,
@@ -553,3 +565,22 @@ def update_modal_attrs(n1, dw_type, table):
         size='sm',
         style={'textAlign':'center'},
     )
+    return body, df.to_dict()
+
+@app.callback(
+    Output('dw-download-attrs', 'data'),
+    Input('dw-download-attrs-btn', 'n_clicks'),
+    State('dw-attrs-data-store', 'data'),
+    prevent_initial_call=True,
+)
+def download_modal_attrs(n_clicks, data):
+
+    if n_clicks:
+
+        df = pd.DataFrame(data)
+
+        return dcc.send_data_frame(
+            df.to_excel, 'atributos.xlsx', sheet_name="sheet1"
+        )
+    else:
+        return
