@@ -5,12 +5,16 @@ channels:
   - defaults
 
 dependencies:
-  - python=3.8
+  - python=3.10
+  - dash
   - dash-core-components
   - dash-html-components
   - dash-renderer
   - dash-table
-  - dash
+  - dask
+  - dask-sql
+  # - fastparquet
+  - pyarrow
   - pip
   - sqlalchemy_schemadisplay
   - unidecode
