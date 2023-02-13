@@ -21,9 +21,9 @@ jobs:
         port: ${{ secrets.TEST_HOST_PORT }}
         shell: bash -l {0}
         script: |
-          GIT_REPO=git@github.com:andrespp/test3.git
+          GIT_REPO=git@github.com:andrespp/dash-bra.git
           GIT_BRANCH=test
-          APP_PATH=~/test3
+          APP_PATH=~/dash-dwbra
           CONDA_ENV=dash-dwbra
 
           echo `date` >> /tmp/lastrun
