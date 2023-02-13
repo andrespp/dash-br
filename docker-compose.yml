@@ -2,11 +2,9 @@ version: '2'
 
 services:
 
-  # bi.kapmed.com.br
-
-  dash-kapmed:
-    image: dash-kapmed
-    container_name: dash-kapmed
+  dash-dwbr:
+    image: dash-dwbr
+    container_name: dash-dwbr
     restart: unless-stopped
     volumes:
      - ./:/usr/src/app

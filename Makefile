@@ -1,4 +1,4 @@
-IMAGE_NAME=dash-dwbra
+IMAGE_NAME=dash-dwbr
 PORT=8050
 
 .PHONY: help
