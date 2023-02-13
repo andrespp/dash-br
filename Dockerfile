@@ -19,7 +19,7 @@ RUN rm /etc/localtime && \
 
 # Aditional packages
 RUN apt-get update && apt-get -y install unixodbc-dev python3-psycopg2  \
-		libpq-dev python3-gv python-pydot python-pydot-ng graphviz
+		libpq-dev python3-gv graphviz
 
 # Setup Conda Environment
 ARG CONDA_ENV_NAME=dash-dwbra
