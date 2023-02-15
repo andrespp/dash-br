@@ -19,6 +19,7 @@ jobs:
         username: ${{ secrets.DEV_HOST_USERNAME }}
         key: ${{ secrets.DEV_HOST_KEY}}
         port: ${{ secrets.DEV_HOST_PORT }}
+        command_timeout: 120m
         shell: bash -l {0}
         script: |
           GIT_REPO=git@github.com:andrespp/dash-bra.git
