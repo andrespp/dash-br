@@ -48,7 +48,7 @@ jobs:
           make setup
 
           # Retrieve data
-          cp -alv $DWBR_PATH $APP_PATH/data/
+          cp -alv $DWBR_PATH/data/parquet $APP_PATH/data/
 
           # Run app
           docker compose up -d
