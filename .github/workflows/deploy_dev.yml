@@ -30,20 +30,19 @@ jobs:
 
           echo `date` >> /tmp/lastrun
 
-          # Check if repo exists, then stop and achive it
-          if [ -d $APP_PATH ] ; then
+          # Check if repo does not exist, clone it
+          if [ ! -d $APP_PATH ] ; then
+            # Clone repo
+            ssh-keyscan github.com >> ~/.ssh/known_hosts
+            GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+            git clone $GIT_REPO $APP_PATH
             cd $APP_PATH
-            docker compose down
-            cd ~/
-            mv $APP_PATH "$APP_PATH"_`date  +%F_%N`
+            git checkout $GIT_BRANCH
           fi
 
-          # Clone repo
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
-          git clone $GIT_REPO $APP_PATH
+          # Stop service
           cd $APP_PATH
-          git checkout $GIT_BRANCH
+          docker compose down
 
           # Build docker image
           make setup
