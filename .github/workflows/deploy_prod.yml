@@ -22,6 +22,7 @@ jobs:
           GIT_REPO=git@github.com:andrespp/dash-bra.git
           GIT_BRANCH=master
           APP_PATH=~/dash-br
+          DWBR_PATH=../dw-br
           CONDA_ENV=dash-dwbra
 
           echo `date` >> /tmp/lastrun
@@ -43,6 +44,9 @@ jobs:
 
           # Build docker image
           make setup
+
+          # Retrieve data
+          cp -alv $DWBR_PATH/data/parquet $APP_PATH/data/
 
           # Run app
           docker compose up -d
