@@ -2,9 +2,10 @@ import dash_bootstrap_components as dbc
 from dash import html, dcc
 from dash.dependencies import Input, Output
 from app import app, config, DWC, DWO
+from apps import datasets
+from apps import home
 from apps import mod_dw
 from apps import schema
-from apps import home
 
 # Header
 header = html.H3(#config['SITE']['HEADER'],
@@ -45,6 +46,8 @@ navbar = dbc.NavbarSimple([
         # Data Warehouse
         dbc.DropdownMenu(
             children=[
+                dbc.DropdownMenuItem("Browsing", header=True),
+                dbc.DropdownMenuItem("Datasets", href="/datasets"),
                 dbc.DropdownMenuItem("Aux", header=True),
                 dbc.DropdownMenuItem("Schema", href="/schema"),
                 dbc.DropdownMenuItem("Tables (Sample DW)", href="/sampledw"),
@@ -101,8 +104,9 @@ def display_page(pathname):
     err= html.Div([html.P('Page not found!')])
     switcher = {
         '/': home.layout,
-        '/sampledw': mod_dw.layout(DWO, preview=1000),
+        '/datasets': datasets.layout(),
         '/parquet': mod_dw.layout(DWC, preview=100),
+        '/sampledw': mod_dw.layout(DWO, preview=1000),
         '/schema': schema.layout,
     }
     return switcher.get(pathname, err)
