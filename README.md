@@ -1,6 +1,8 @@
 Painel DW-BRA
 =============
 
+[![Deploy to dev VM](https://github.com/andrespp/dash-bra/actions/workflows/deploy_dev.yml/badge.svg)](https://github.com/andrespp/dash-bra/actions/workflows/deploy_dev.yml)
+
 ## Introdução
 
 Ferramenta de visualização do [DW-BRA](https://github.com/andrespp/dw-bra/).
