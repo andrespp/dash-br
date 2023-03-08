@@ -44,6 +44,9 @@ jobs:
           cd $APP_PATH
           docker compose down
 
+          # Update GIT repo
+          git pull origin $GIT_BRANCH
+
           # Build docker image
           make setup
 
