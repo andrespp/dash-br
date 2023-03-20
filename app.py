@@ -76,6 +76,11 @@ if config['SITE']['LOG']=='True':
 else:
     VERBOSE=False
 
+# Placeholder for futures translation
+def _(foo: str):
+    return foo
+
+
 print(f"Dash v{dash.__version__}.\n" \
       f"DCC v{dcc.__version__}.\n" \
       f"DBC v{dbc.__version__}")

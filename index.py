@@ -2,6 +2,7 @@ import dash_bootstrap_components as dbc
 from dash import html, dcc
 from dash.dependencies import Input, Output
 from app import app, config, DWC, DWO
+from apps import novo_caged
 from apps import datasets
 from apps import home
 from apps import mod_dw
@@ -35,7 +36,7 @@ navbar = dbc.NavbarSimple([
         dbc.DropdownMenu(
             children=[
                 dbc.DropdownMenuItem("DATASETS", header=True),
-                dbc.DropdownMenuItem("CAGED", href="/nfse"),
+                dbc.DropdownMenuItem("CAGED", href="/novo_caged"),
                 dbc.DropdownMenuItem("RAIS", href="/nfse"),
             ],
             nav=True,
@@ -104,6 +105,7 @@ def display_page(pathname):
     err= html.Div([html.P('Page not found!')])
     switcher = {
         '/': home.layout,
+        '/novo_caged': novo_caged.layout(),
         '/datasets': datasets.layout(),
         '/parquet': mod_dw.layout(DWC, preview=100),
         '/sampledw': mod_dw.layout(DWO, preview=1000),
