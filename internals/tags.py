@@ -2,6 +2,7 @@ import os
 import json
 import logging
 import configparser
+import pandas as pd
 
 # config
 CONFIG_FILE = './config.ini'
@@ -21,6 +22,75 @@ except:
 LOG_FORMAT = '%(levelname)s\t%(asctime)s:\t%(message)s'
 logging.basicConfig(level = logging.DEBUG, format = LOG_FORMAT)
 log = logging.getLogger(__name__)
+
+def read_articles_from_json(art_fname, datasets_file):
+    # read articles from json
+    with open(art_fname, 'r') as f:
+        articles = json.load(f)
+        log.info(f'"{art_fname}" read. {len(articles)} entries.')
+
+    # read datasets.json
+    with open(datasets_file, 'r') as f:
+        datasets = json.load(f)
+        log.info(
+            f'"{datasets_file} read. ' \
+            f'{len(datasets["areas"])} areas, ' \
+            f'{len(datasets["themes"])} themes, ' \
+            f'{len(datasets["datasets"])} datasets.'
+        )
+
+    return articles, datasets
+
+def lookup_datasets():
+    """Lookup pandas df with all datasets defined
+    """
+    articles, datasets = read_articles_from_json(
+        config['LIB']['ARTICLES'],
+        config['LIB']['DATASETS']
+    )
+
+    ## lookup data articles.json
+    art = pd.json_normalize(
+        articles,
+        record_path='datasets',
+        meta=['name', 'year'],
+        record_prefix='ds'
+    )
+    art.rename(
+        index=str,
+        columns={'ds0':'dataset', 'name':'article'},
+        inplace=True
+    )
+    df = art[['dataset', 'article']].groupby(
+            ['dataset']
+        ).agg({'article':'count'}).reset_index()
+
+    ## lookup data datasets.json
+
+    # themes
+    themes = datasets['themes']
+    themes
+
+    # repos
+    repos = pd.json_normalize(datasets['repositories'])
+    repos = repos[['id','name']]
+
+    # datasets
+    ds = pd.json_normalize(datasets['datasets'])
+    ds = ds[['repository', 'id', 'name']]
+    ds.rename(index=str, columns={'id':'dataset'}, inplace=True)
+
+    df = pd.merge(
+        ds,
+        df,
+        how='left',
+        on='dataset',
+    )
+    df['article'].fillna(0, inplace=True)
+    df['article'] = df['article'].apply(int)
+    df = df.sort_values(by='repository')
+
+    return df
 
 def validate_classification(article, datasets):
     """Check if article entry is consistant to given datasets.
@@ -84,7 +154,7 @@ def validate_classification(article, datasets):
 
 if __name__ == "__main__":
 
-    lib_fname = config['LIB']['DATA']
+    lib_fname = config['LIB']['ARTICLES']
     datasets_file = config['LIB']['DATASETS']
 
     # read articles from json

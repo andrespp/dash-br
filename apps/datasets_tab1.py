@@ -6,6 +6,7 @@ import json
 from app import app, config
 from apps import mod_indicator
 from dash import Input, Output, html, dcc, ALL
+from internals import tags
 
 # logger
 LOG_FORMAT = '%(levelname)s\t%(asctime)s:\t%(message)s'
@@ -367,6 +368,7 @@ def update_themes_table(refresh, data):
 def update_repos_table(refresh, data):
     refresh
 
+
     try:
         df = pd.DataFrame(data['repositories'])
         df = df[['id','name']].sort_values(by='id')
@@ -406,6 +408,10 @@ def update_datasets_table(refresh, data, repo_click, repo_name):
     refresh
 
     try:
+        cnt = tags.lookup_datasets()
+        cnt = cnt[['dataset', 'article']]
+        cnt.rename(index=str, columns={'dataset':'id'}, inplace=True)
+
         # Identify repo selected (clicked on repo table)
         if len(repo_click) > 0:
             repo_click = [0 if x is None else x for x in repo_click]
@@ -423,6 +429,13 @@ def update_datasets_table(refresh, data, repo_click, repo_name):
         df = pd.DataFrame(data['datasets'])
         df = df[['id','name', 'repository']].sort_values(by='id')
         df = df[df['id'] != ''].reset_index(drop=True)
+
+        #
+        df = pd.merge(df, cnt, on='id', how='left')
+        df['id'] = df.apply(
+                lambda x: f"{x['id']} ({x['article']})"
+                ,axis=1
+        )
 
         # select clicked repository datasets only
         if repo != '':
