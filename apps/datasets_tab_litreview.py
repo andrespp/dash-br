@@ -29,7 +29,7 @@ PLOT01_FILENAME='plot01_data.xlsx'
 # Layout Objects
 ###############################################################################
 graph01 = dcc.Graph(id=DF_NAME+'-plot01',)
-graph02 = dcc.Graph(id=DF_NAME+'-pie01',)
+graph02 = dcc.Graph(id=DF_NAME+'-plot02',)
 refresh_button = dbc.Button(
     id=DF_NAME+'-refresh-btn',
     children=[html.I(className="fa fa-sync"), "Refresh"],
@@ -109,7 +109,20 @@ layout = [
     # Indicators Row
     html.Div(id=DF_NAME+'-indicators-row'),
 
-    # Graph row1
+    # Graph row
+    dbc.Row([
+
+        dbc.Col(
+            dbc.Row([
+                graph02,
+            ]),
+            className='text-center',
+            width={'size':6, 'offset':0}
+        ),
+
+    ]),
+
+    # Graph row
     dbc.Row([
 
         dbc.Col(
@@ -120,13 +133,6 @@ layout = [
             width={'size':12, 'offset':0}
         ),
 
-        # dbc.Col(
-        #     dbc.Row([
-        #         graph02,
-        #     ]),
-        #     className='text-center',
-        #     width={'size':6, 'offset':0}
-        # ),
     ]),
 
     # Download and Refresh buttons
@@ -149,6 +155,7 @@ layout = [
     dcc.Store(id=DF_NAME+'-datasets'),
     dcc.Store(id=DF_NAME+'-articles'),
     dcc.Store(id=DF_NAME+'-plot01-data'),
+    dcc.Store(id=DF_NAME+'-plot02-data'),
 
 ]
 
@@ -474,57 +481,6 @@ def download_modal_indicator02(n_clicks, data):
         return
 
 @app.callback(
-    Output(DF_NAME+'-plot01', 'figure'),
-    Output(DF_NAME+'-plot01-data', 'data'),
-    Input(DF_NAME+'-articles', 'data'),
-    Input(DF_NAME+'-datasets', 'data'),
-    Input(DF_NAME+'-refresh-btn', 'n_clicks'),
-    prevent_initial_call=False,
-)
-def update_plot01(articles, datasets, refresh):
-
-    refresh
-
-    # lookup data
-    df = pd.json_normalize(
-        articles,
-        record_path='datasets',
-        meta=['name', 'year'],
-        record_prefix='ds'
-    )
-    df.rename(
-        index=str,
-        columns={'ds0':'dataset', 'name':'article'},
-        inplace=True
-    )
-    df = df[df['dataset']!=''].reset_index(drop=True)
-    df = df[['dataset', 'article', 'year']]
-    dfg = df.groupby(['year','dataset']).agg({'article':'count'}).reset_index()
-
-    dfa = pd.json_normalize(datasets, record_path='datasets')
-    dfa = dfa[['id', 'publisher']]
-    dfa.rename(index=str, columns={'id':'dataset'}, inplace=True)
-
-    dfg = pd.merge(dfg, dfa, on='dataset', how='left')
-
-    # https://plotly.com/python/bubble-charts/
-    fig = px.scatter(
-        dfg,
-        x='dataset',
-        y='year',
-        size='article',
-        color='publisher',
-        hover_name='publisher'
-    )
-    fig.update_layout(
-        title=_('Dataset citation on scientifc articles by year'),
-        xaxis_title=_('Dataset'),
-        yaxis_title=_('Year'),
-    )
-
-    return fig, dfg.to_dict('records')
-
-@app.callback(
     Output(DF_NAME+'-modal-plot01', 'is_open'),
     Input(DF_NAME+'-plot01', 'clickData'),
     State(DF_NAME+'-modal-plot01', 'is_open'),
@@ -581,4 +537,124 @@ def download_modal_indicator01(n_clicks, data):
         )
     else:
         return
+
+@app.callback(
+    Output(DF_NAME+'-plot01', 'figure'),
+    Output(DF_NAME+'-plot01-data', 'data'),
+    Input(DF_NAME+'-articles', 'data'),
+    Input(DF_NAME+'-datasets', 'data'),
+    Input(DF_NAME+'-refresh-btn', 'n_clicks'),
+    prevent_initial_call=False,
+)
+def update_plot01(articles, datasets, refresh):
+
+    refresh
+
+    # lookup data
+    df = pd.json_normalize(
+        articles,
+        record_path='datasets',
+        meta=['name', 'year'],
+        record_prefix='ds'
+    )
+    df.rename(
+        index=str,
+        columns={'ds0':'dataset', 'name':'article'},
+        inplace=True
+    )
+    df = df[df['dataset']!=''].reset_index(drop=True)
+    df = df[['dataset', 'article', 'year']]
+    dfg = df.groupby(['year','dataset']).agg({'article':'count'}).reset_index()
+
+    dfa = pd.json_normalize(datasets, record_path='datasets')
+    dfa = dfa[['id', 'publisher']]
+    dfa.rename(index=str, columns={'id':'dataset'}, inplace=True)
+
+    dfg = pd.merge(dfg, dfa, on='dataset', how='left')
+
+    # https://plotly.com/python/bubble-charts/
+    fig = px.scatter(
+        dfg,
+        x='dataset',
+        y='year',
+        size='article',
+        color='publisher',
+        hover_name='publisher'
+    )
+    fig.update_layout(
+        title=_('Dataset citation on scientifc articles by year'),
+        xaxis_title=_('Dataset'),
+        yaxis_title=_('Year'),
+    )
+
+    return fig, dfg.to_dict('records')
+
+@app.callback(
+    Output(DF_NAME+'-plot02', 'figure'),
+    Output(DF_NAME+'-plot02-data', 'data'),
+    Input(DF_NAME+'-articles', 'data'),
+    Input(DF_NAME+'-datasets', 'data'),
+    Input(DF_NAME+'-refresh-btn', 'n_clicks'),
+    prevent_initial_call=False,
+)
+def update_plot02(articles, datasets, refresh):
+
+    refresh
+
+    ## lookup data articles.json
+    df = pd.json_normalize(
+        articles,
+        record_path='datasets',
+        meta=['name', 'year'],
+        record_prefix='ds'
+    )
+    df.rename(
+        index=str,
+        columns={'ds0':'dataset', 'name':'article'},
+        inplace=True
+    )
+    ## lookup data datasets.json
+    
+    # themes
+    themes = datasets['themes']
+    themes
+
+    # repos
+    repos = pd.json_normalize(datasets['repositories'])
+    repos = repos[['id','name']]
+
+    # datasets
+    ds = pd.json_normalize(datasets['datasets'])
+    ds = ds[['repository', 'id', 'name']]
+    ds.rename(index=str, columns={'id':'dataset'}, inplace=True)
+
+    # merge repository
+    df = pd.merge(
+        df,
+        ds,
+        how='left',
+        on='dataset',
+    )
+
+    df = df[df['dataset']!=''].reset_index(drop=True)
+    df = df[['repository', 'article', 'year']]
+    dfg = df.groupby(
+        ['year','repository']
+    ).agg({'article':'count'}).reset_index()
+
+    fig = px.scatter(
+        dfg,
+        x='repository',
+        y='year',
+        size='article',
+        color='article',
+        hover_name='repository'
+    )
+    fig.update_layout(
+        title=_('Repository citation on scientifc articles by year'),
+        xaxis_title=_('Repository'),
+        yaxis_title=_('Year'),
+    )
+
+    return fig, dfg.to_dict('records')
 
