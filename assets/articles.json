@@ -1,0 +1,588 @@
+[
+
+    {
+        "name":"Gomes2022",
+        "year":"2022",
+        "title":"Indexing, enriching, and understanding Brazilian missing person cases from data of distributed repositories on the web",
+        "areas":["Serviços Públicos"],
+        "themes":["Defesa e Segurança"],
+        "data-strategy": {
+            "type": "web scraping",
+            "description": "Fifteen web-sites were used as data sources, which contained 11,751 instances."
+        },
+        "datasets":["nomes-censo-2010"],
+        "dificulties":[
+            "Government data as the information are dispersed, disconnected, and poorly structured. ",
+            "Public security lacks manpower to produce trusted national statistics. ",
+            "More than one source reproduces the same information and data that could be complementary from different websites. ",
+            ""
+        ],
+        "link":"https://link.springer.com/article/10.1007/s00146-022-01456-5",
+        "repo":"https://github.com/lapic-ufjf/unified-semanticframework"
+
+    },
+
+
+    {
+        "name":"Azevedo2022_",
+        "year":"2022",
+        "title":"Political effects on the discontinuation of participatory budgeting in municipalities",
+        "areas":["Serviços Públicos"],
+        "themes":["Equipamentos Públicos"],
+        "data-strategy": {
+            "type": "static datasets",
+            "description": "O trabalho utiliza uma base pública não governamental para analizar a adoção de orçamento participativo em municípios brasileiros, e compara estatíscas descritivas (PIB per-capita, população, IDH, vulnerabilidade social) de municípios que adotam a estratégia com aqueles que não a adotam."
+        },
+        "datasets":["pb-census-1989-2012", "contagem-populacao", "pib-municipios"],
+        "dificulties":[
+            "Falta de dados oficiais sobre o tema. ",
+            "Dataset utilizado considera apenas municípios com mais de 50 mil habitantes. ",
+            "Amostra não permite generalização generalização para todos os municípios brasileiros. "
+        ],
+        "link":"https://doi.org/10.1590/0034-761220210368x",
+        "repo":""
+    },
+
+    {
+        "name":"Santos2018_",
+        "year":"2018",
+        "title":"A Framework for Constructing Open Data Map Visualizations",
+        "areas":["Serviços Públicos"],
+        "themes":["Transportes e Trânsito"],
+		"description":"georeferenced data visualization",
+        "data-strategy": {
+            "type": "dinamic datasets",
+            "description": "O trabalho utiliza realiza ETL em dados de localização GPS de ônibus da cidade do Rio de Janeiro, e utiliza-os no desenvolvimento de um framework de visualização de dados georeferenciados."
+        },
+        "datasets":["gps-onibus-rio"],
+        "dificulties":[
+            "Poucas opções de visualização de dados públicos. No Portal Brasileiro de Dados Abertos, nota-se que poucos conjuntos de dados possuem visualizações de dados disponíveis. Daí, a interpretação dos dados por cidadãos comuns fica dificultada, por ter que fazer uso de ferramentas da área de mineração e ciência de dados, o que não é uma tarefa trivial, já que requer conhecimento técnico para seu uso",
+            "Atualmente, o cruzamento de dados em diferentes portais deve ser realizado de maneira manual, utilizando ferramentas de mineração de dados.",
+            "Dataset GPS Onibus Rio formata de forma diferene os dados de ônibus e BRT, exigindo uma transformação antes da análise conjuna dos mesmos.",
+            ""
+        ],
+        "link":"https://doi.org/10.1145/3229345.3229358",
+        "repo":"https://github.com/pedroccrl/projetoVisualizacao"
+
+    },
+
+    {
+        "name":"bezerra2020_",
+        "year":"2020",
+        "title":"A publicidade de dados abertos pelo Tribunal Superior Eleitoral (TSE): o caso do Repositório de Dados Eleitorais",
+        "areas":["Serviços Públicos"],
+        "themes":["Governo e Política"],
+        "data-strategy": {
+            "type": "static datasets",
+            "description": "O trabalho apresenta o RDE (Repositório de Dados Eleitorais). Contextualiza a questão de dados abertos governamentais, explica o procedimento de publicidade de dados do TSE, mas não realiza nenhuma análise em qualquer base específica."
+        },
+        "datasets":["informacoes-e-candidaturas"],
+        "dificulties":[],
+        "link":"https://revista.ibict.br/ciinf/article/view/5228"
+
+    },
+
+    {
+        "name":"su14148802",
+        "year":"2022",
+        "title":"Application of Open Government Data to Sustainable City Indicators: A Megacity Case Study",
+        "areas":["Serviços Públicos"],
+        "themes":["Habitação, Saneamento e Urbanismo"],
+        "data-strategy": {
+            "type": "static datasets",
+            "description": "O trabalho analisa diversos indicadores urbanos da cidade de São Paulo e os compara com indicadores definidos em ISO"
+        },
+        "datasets":["observasampa"],
+        "dificulties":[ "" ],
+        "link":"https://www.mdpi.com/2071-1050/14/14/8802",
+        "repo":""
+
+    },
+
+    {
+        "name":"areco2021",
+        "year":"2021",
+        "title":"Operational Challenges in the Use of Structured Secondary Data for Health Research",
+        "areas":["Serviços Públicos"],
+        "themes":["Saúde"],
+        "data-strategy": {
+            "type": "ETL of multiple static datasets",
+            "description": "ETL de dados de saúde e proposta de um modelo lógico para tratamento de dados dessa natureza"
+        },
+        "datasets":[
+            "sp-mortalidade-infantil", "sp-nascidos-vivos", "sp-vitais",
+            "sim", "pcdas-sim"
+        ],
+        "dificulties":[
+            "Entendimeto e preparação de dados",
+            "Indisponibilidade de datasets completos com acesso imediato",
+            "Má definição de metadados",
+            "Grande volume (mais de 10Gb) de dados em diferentes formatos",
+            "Multiplas Tabelas",
+            "Dados Nulos",
+            "Dados Duplicados",
+            "Variáveis com conteúdos misturados",
+            "Falta de relacionamento explícito entre tabelas relacionadas",
+            "Dentre outros (total de 27 dificuldades apontadas)"
+        ],
+        "link":"https://www.frontiersin.org/articles/10.3389/fpubh.2021.642163",
+        "repo":"N/A"
+
+    },
+
+    {
+        "name":"antoni2021",
+        "year":"2021",
+        "title":"Querying Brazilian Educational Open Data using a Hybrid NLP-based Approach",
+        "areas":["Serviços Públicos"],
+        "themes":["Educação"],
+        "data-strategy": {
+            "type": "",
+            "description": "Criação de um sistema de perguntas e respostas através de processamento de linguagem natural, para fins de exploração de grandes conjuntos de dados públicos."
+        },
+        "datasets":["censoescolar", "cntc", "municipiosbrasileiros"],
+        "dificulties":[
+            "Utilizado apenas uma amostra dos dados (2019, alunos do RS)",
+            "Relacionamento com tabelas externas: cidades, cursos técnicos",
+            "",
+            ""
+        ],
+        "link":"https://www.researchgate.net/publication/351287982_Querying_Brazilian_Educational_Open_Data_using_a_Hybrid_NLP-based_Approach",
+        "repo":""
+    },
+
+    {
+        "name":"hiroki2021",
+        "year":"2021",
+        "title":"Mobilidade, participação e dados: O caso da aplicação do Waze for Cities Data na cidade de Joinville (SC)",
+        "areas":["Serviços Públicos"],
+        "themes":["Transportes e Trânsito"],
+        "data-strategy": {
+            "type": "Live data from API",
+            "description": "Dados obtidos por API fechada do Waze"
+        },
+        "datasets":[""],
+        "dificulties":[
+            "Não utiliza dados públicos (dataset 'waze' não disponível)"
+        ],
+        "link":"https://doi.org/10.1590/2175-3369.013.e20200030",
+        "repo":""
+    },
+
+    {
+        "name":"rivero-riqueme202158",
+        "year":"2021",
+        "title":"Esquema de Fluxo de Dados para Tomada de Decisão no Setor Público",
+        "areas":["Serviços Públicos"],
+        "themes":["Equipamentos Públicos"],
+        "data-strategy": {
+            "type": "",
+            "description": ""
+        },
+        "datasets":["", ""],
+        "dificulties":[
+            "trabalho não utiliza datasets brasileiros"
+        ],
+        "link":"http://www.scielo.org.co/scielo.php?script=sci_abstract&pid=S1794-44492021000200058&lng=en&nrm=iso&tlng=pt",
+        "repo":""
+    },
+
+    {
+        "name":"dosreis2020",
+        "year":"2020",
+        "title":"Enhancing Open Government Data With Data Provenance",
+        "areas":["Serviços Públicos"],
+        "themes":["Ciência, Inovação e Comunicação"],
+		"description":"We propose here an architecture for capturing, managing, and publishing the provenance metadata generated during the process of publishing Linked Open Government Data (Extends UnBGOLD). Utiliza DW existente da UnB",
+        "data-strategy": {
+            "type": "Static dataset",
+            "description": ""
+        },
+        "datasets":["cursosgradunb"],
+        "dificulties":[
+            ""
+        ],
+        "link":"https://doi.org/10.1145/3297662.3365791",
+        "repo":"https://github.com/luizbm/unbgold"
+    },
+
+    {
+        "name":"souza2020",
+        "year":"2020",
+        "title":"DBacademic: Conectando os dados abertos das instituições de ensino do Brasil",
+        "areas":["Serviços Públicos"],
+        "themes":["Educação"],
+		"description":"",
+        "data-strategy": {
+            "type": "static datasets",
+            "description": "Obtenção de dados no dados.org e integração via ETL para geração de dados RDF"
+        },
+        "datasets":[
+            "cursosgradunb",
+            "docentes-ufrn", "discentes-ufrn", "cursos-ufrn", "tcc-ufrn",
+            "discentes-ifc", "cursos-ifc", "cursos-pos-ifc",
+            "cusos-pos-ufma", "docentes-ufma", "tese-ufma",
+            "servidores-ifpb", "alunos-ifpb",
+            "seridores-ifrn", "cursos-ifrn", "alunos-ifrn",
+            "servidores-ufca", "cursos-ufca", "cursos-pos-ufca",
+            "alunos-ufcspa", "cursos-ufcspa", "servidores-ufcspa",
+            "cursos-pos-ufersa", "cursos-ufersa",
+            "cursos-uffs", "cursos-pos-uffs", "alunos-uffs",
+            "alunos-ufms", "cursos-ufms",
+            "anunos-pos-ufms", "cursos-pos-ufms",
+            "alunos-ufob", "cursos-ufob", "matriculas-ufob",
+            "alunos-ufop", "docentes-ufop", "alunos-pos-ufop",
+            "cursos-ufpb",
+            "alunos-ufpel", "alunos-pos-ufpel", "cursos-ufpel",
+            "cursos-ufpi", "alunos-ufpi", "docentes-ufpi", "alunos-pos-ufpi", "cursos-pos-ufpi",
+            "cursos-pos-ufsj", "cursos-ufsj",
+            "docentes-ufv", "cursos-ufv", "alunos-ufv",
+            "cursos-unifesspa", "cursos-pos-unifesspa", "docentes-unifesspa",
+            ""
+        ],
+        "dificulties":[
+            "De 45 instituições identificadas, apenas 25 possuíam dados acessíeis e completos",
+            "",
+            "",
+            ""
+        ],
+        "link":"https://revista.ibict.br/ciinf/article/view/5500",
+        "repo":"https://github.com/dbacademic/dbacademic.github.io"
+    },
+
+    {
+        "name":"leao2018",
+        "year":"2018",
+        "title":"Digitization of Serviços Públicos: A Systematic Literature Review",
+        "areas":["Serviços Públicos"],
+        "themes":["Equipamentos Públicos"],
+		"description":"",
+        "data-strategy": {
+            "type": "",
+            "description": ""
+        },
+        "datasets":[""],
+        "dificulties":[
+            ""
+        ],
+        "link":"https://doi.org/10.1145/3275245.3275255",
+        "repo":""
+    },
+
+    {
+        "name":"oliveirasilva2020",
+        "year":"2020",
+        "title":"Smart governance based on multipurpose territorial cadastre and geographic information system: An analysis of geoinformation, transparency and collaborative participation for Brazilian capitals",
+        "areas":["Serviços Públicos"],
+        "themes":["Equipamentos Públicos"],
+		"descrition":"",
+		"description":"",
+        "data-strategy": {
+            "type": "static datasets and public dashboards",
+            "description": "Browsing public data on geoinformation"
+        },
+        "datasets":[
+            "area-territorial-ibge",
+            "estimativa-populacao-ibge",
+            "pib-municipios"
+        ],
+        "dificulties":[
+            "Não indica claramente o processo de obtenção de dados"
+        ],
+        "link":"https://www.sciencedirect.com/science/article/pii/S0264837719322355",
+        "repo":""
+    },
+
+    {
+        "name":"santos2020",
+        "year":"2020",
+        "title":"Open data and open science: how brazilian federal universities present themselves in this horizon",
+        "areas":["Serviços Públicos"],
+        "themes":["Educação"],
+		"description":"Como as universidades brasileiras lidam com a Política Brasileira de Dados Abertos",
+        "data-strategy": {
+            "type": "",
+            "description": ""
+        },
+        "datasets":["", ""],
+        "dificulties":[
+            "Os dados não foram retirados de um dataset"
+        ],
+        "link":"https://brapci.inf.br/index.php/res/v/162986",
+        "repo":""
+    },
+
+    {
+        "name":"silva2020",
+        "year":"2020",
+        "title":"An Application of Machine Learning to Study Utilities Expenses in the Brazilian Navy",
+        "areas":["Serviços Públicos"],
+        "themes":["Defesa e Segurança"],
+		"description":"Uso de de aprendizado de máquina na área militar. abordagem de aprendizado de máquina para apoiar o processo de tomada de decisão com base em dados que representam vários atributos",
+        "data-strategy": {
+            "type": "Extract, Transform, and Load",
+            "description": "Uso de diversos dados internos e externos, utilizando diferentes métodos; fundindo todos os diferentes formatos em uma única estrutura, removendo partes incompletas ou irrelevantes; Inserindo os dados em um banco de dados de pesquisa criado para tal estudo."
+        },
+        "datasets":[
+            "populacao-estados","indice-de-desenvolvimento-humano","dados-meteorologicos-por-ano-e-estado"
+            
+        ],
+        "dificulties":[
+            "Não há links das fontes dos datasets","As fontes dos dados estão indicadas de maneira vaga, dificultado a busca"
+        ],
+        "link":"https://link.springer.com/chapter/10.1007/978-3-030-64583-0_7",
+        "repo":""
+    },
+
+    {
+        "name":"britto2020",
+        "year":"2020",
+        "title":"An environment for integrating public expense open data",
+        "areas":["Serviços Públicos"],
+        "themes":["Ciência, Inovação e Comunicação"],
+		"description":"Maneiras para facilitação de acesso a dados abertos",
+        "data-strategy": {
+            "type": "",
+            "description": ""
+        },
+        "datasets":["", ""],
+        "dificulties":[
+            "O artigo não usa datasets"
+        ],
+        "link":"https://ceur-ws.org/Vol-2728/paper13.pdf",
+        "repo":"https://github.com/MenthorTools/menthor-editor"
+    },
+
+    {
+        "name":"martim2018",
+        "year":"2018",
+        "title":"Base of Brazilian Legal Norms: an Open Government Data Initiative",
+        "areas":["Serviços Públicos"],
+        "themes":["Equipamentos Públicos"],
+		"description":"Ciência de dados aplicadas nas normas jurídicas brasileiras",
+        "data-strategy": {
+            "type": "static datasets",
+            "description": "construção de datasets abertos contendo os dados de normas jurídicas brasileiras de forma bruta, textual e estruturada"
+        },
+        "datasets":["", ""],
+        "dificulties":[
+            "Não há uso de nenhum dataset, apenas acriação de datasets usando normas jurídicas"
+            
+        ],
+        "link":"https://www.scielo.br/j/pci/a/mZgg7fh6hvW6NXnCkjBdDQS/abstract/?lang=en",
+        "repo":"https://github.com/lexml/lexml-parser-projeto-lei"
+    },
+
+    {
+        "name":"marques2022",
+        "year":"2022",
+        "title":"Transparência na Administração Pública: uma Revisão de Escopo",
+        "areas":["Serviços Públicos"],
+        "themes":["Equipamentos Públicos"],
+		"description":"Mapeamento de artigos relacionados a transparência pública",
+        "data-strategy": {
+            "type": "",
+            "description": ""
+        },
+        "datasets":["", ""],
+        "dificulties":[
+            "O artigo não usa datasets. Como o tema pricipal é a revisão de escopo de artigos relacionados a transparência pública, o artigo usa dados dos repositórios Scopus, ISI Web of Science e SPELL"
+        ],
+        "link":"https://congressousp.fipecafi.org/anais/22UspInternational/ArtigosDownload/3839.pdf",
+        "repo":""
+    },
+
+    {
+        "name":"passos2018",
+        "year":"2018",
+        "title":"Open Data Extraction, Transformation, and Loading as a Tool for Supporting 2018 Elections’ Voters",
+        "areas":["Serviços Públicos"],
+        "themes":["Justiça e Legislação"],
+		"description":"Criação de um aplicativo móvel que facilite o acesso a informações sobre candidatos políticos",
+        "data-strategy": {
+            "type": "static datasets",
+            "description": "Utilização de diversos datasets disponibilizados pelo TSE com as informações de todas as candidaturas de todos os agentes públicos que concorreram a pelo menos uma eleição a partir de 2004 para a criação de outros datasets"
+        },
+        "datasets":["informacoes-e-candidaturas"],
+        "dificulties":[
+            "",
+            "",
+            "",
+            ""
+        ],
+        "link":"https://dl.acm.org/doi/10.1145/3330204.3330232",
+        "repo":"https://github.com/laddres"
+    },
+
+        {
+        "name":"rolim2019",
+        "year":"2019",
+        "title":"SemanticSefaz: an ontology-based semantic portal for the government spending",
+        "areas":["Serviços Públicos"],
+        "themes":["Equipamentos Públicos"],
+		"description":"Desenvolvimento de uma ferramenta que facilite a vizualização de gasto de verbas públicas",
+        "data-strategy": {
+            "type": "static datasets",
+            "description": "Fornecemento de dados que usando api"
+        },
+        "datasets":[""],
+        "dificulties":[
+            "Dados disponibilizados através de api e não diretamente de datasets"
+        ],
+        "link":"https://dl.acm.org/doi/10.1145/3323503.3360638",
+        "repo":""
+    },
+
+    {
+        "name":"santos2018",
+        "year":"2018",
+        "title":"Building Software Products with Use Open Data and Big Data in Smart Cities",
+        "areas":["Serviços Públicos"],
+        "themes":["Ciência, Inovação e Comunicação"],
+		"description":"Construção de um mapeamento sistemático sobre a análise do estado da arte da utilização de dados via Open Data e Big Data, em soluções tecnológicas, com interoperabilidade entre produtos de software, para cidades inteligentes.",
+        "data-strategy": {
+            "type": "",
+            "description": ""
+        },
+        "datasets":["", ""],
+        "dificulties":[
+            "O artigo não utiliza datasets, apenas analisa outros artigos",
+            "",
+            "",
+            ""
+        ],
+        "link":"https://doi.org/10.1145/3293614.3293624",
+        "repo":""
+    },
+    
+    {
+        "name":"eckelberg2018",
+        "year":"2018",
+        "title":"Educational Open Government Data: From Requirements to End Users",
+        "areas":["Serviços Públicos"],
+        "themes":["Educação"],
+		"description":"Desenvolvimento de uma página web que utilize dados abertos governamentais sobre educação para a criação de uma ferramenta de busca e pesquisa",
+        "data-strategy": {
+            "type": "static datasets",
+            "description": "datsets que contém micro dados do censo de educação brasileira"
+        },
+        "datasets":[
+			"censoescolar",
+			"censo-educacao-superior"
+		],
+        "dificulties":[
+            "",
+            "",
+            "",
+            ""
+        ],
+        "link":"https://www.inf.ufpr.br/didonet/articles/2018_educational_open_data_icwe.pdf",
+        "repo":""
+    },
+    
+    {
+        "name":"soares2020",
+        "year":"2020",
+        "title":"Governança Inteligente com Análise e Integração de Dados: Uma Revisão Sistemática de Literatura",
+        "areas":["Serviços Públicos"],
+        "themes":["Governo e Política"],
+        "data-strategy": {
+            "type": "Revisão Sistemática",
+            "description": "Revisão sitemática sobre governança inteligente atravéz do uso de dados"
+        },
+        "datasets":["", ""],
+        "dificulties":[
+            "Não há uso de datasets",
+            "",
+            "",
+            ""
+        ],
+        "link":"https://sol.sbc.org.br/index.php/wcge/article/view/11264",
+        "repo":""
+    },
+    
+    {
+        "name":"Gouveia_Freitas_2018",
+        "year":"2018",
+        "title":"Implementação de um data warehouse para análise de dados abertos governamentais da educação a distância",
+        "areas":["Serviços Públicos"],
+        "themes":["Educação"],
+        "data-strategy": {
+            "type": "",
+            "description": "Implementação de um banco de dados educacional multidimensional voltado à análise do ensino superior brasileiro, com foco na Educação a Distância. Dados dispostos em um repositório governamental, emac"
+        },
+        "datasets":["", ""],
+        "dificulties":[
+            "O artigo não indica de maneira clara e detalhada como a coleta de dados foi feita, apenas aponta a base de dados",
+            "",
+            "",
+            ""
+        ],
+        "link":"https://periodicos.ifrs.edu.br/index.php/tear/article/view/3037",
+        "repo":""
+    },
+
+    {
+        "name":"cruz2018",
+        "year":"2018",
+        "title":"Investigando a Mobilidade Urbana Através de Dados Abertos Governamentais Enriquecidos com Proveniência",
+        "areas":["Serviços Públicos"],
+        "themes":["Transportes e Trânsito"],
+        "data-strategy": {
+            "type": "static datasets",
+            "description": "Dados das linhas de ônibus da cidade do Rio de Janeiro"
+        },
+        "datasets":["dados-ônibus-rio", "gps-onibus-rio"],
+        "dificulties":[
+            "",
+            "",
+            "",
+            ""
+        ],
+        "link":"file:///C:/Users/Kevin/Downloads/Documents/6251-Texto%20do%20Artigo-35121-2-10-20180919.pdf",
+        "repo":""
+    },
+
+    {
+        "name":"victorino2017",
+        "year":"2017",
+        "title":"Proposal of a Brazilian Database Government Open Linked Data: DBgoldbr: Invited Paper",
+        "areas":["Serviços Públicos"],
+        "themes":["Ciência, Inovação e Comunicação"],
+        "data-strategy": {
+            "type": "",
+            "description": ""
+        },
+        "datasets":["", ""],
+        "dificulties":[
+            "O artigo não indica os datasets que foram utilizados, apenas os repositórios que foram usados",
+            "",
+            "",
+            ""
+        ],
+        "link":"https://dl.acm.org/doi/pdf/10.1145/3167020.3167035",
+        "repo":""
+    },
+    
+    {
+        "name":"",
+        "year":"",
+        "title":"",
+        "areas":[""],
+        "themes":[""],
+		"description":"",
+        "data-strategy": {
+            "type": "",
+            "description": ""
+        },
+        "datasets":["", ""],
+        "dificulties":[
+            "",
+            "",
+            "",
+            ""
+        ],
+        "link":"",
+        "repo":""
+    }
+]

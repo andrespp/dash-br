@@ -6,6 +6,7 @@ from dash import html
 from dash.dependencies import Input, Output
 from app import app
 from apps import datasets_tab1 as tab1
+from apps import datasets_tab_litreview as tab_litreview
 #from apps import datasets_tab2 as tab2
 
 ###############################################################################
@@ -31,7 +32,11 @@ def layout():
             html.Div([
                 dbc.Tabs(
                     [
-                        dbc.Tab(label="Overview", tab_id=DF_NAME+"-tab1"),
+                        dbc.Tab(label="Datasets", tab_id=DF_NAME+"-tab1"),
+                        dbc.Tab(
+							label="Literature Review",
+							tab_id=DF_NAME+"-tab-review",
+						),
                         dbc.Tab(label="Lookup", tab_id=DF_NAME+"-tab2"),
                         dbc.Tab(label="Browse", tab_id=DF_NAME+"-tab3"),
                     ],
@@ -56,9 +61,8 @@ def layout():
 def switch_tab(at):
     if at == DF_NAME+"-tab1":
         return tab1.layout
-    elif at == DF_NAME+"-tab2":
-        #return tab2.layout
-        return html.P('Dataset lookup')
+    elif at == DF_NAME+"-tab-review":
+        return tab_litreview.layout
     elif at == DF_NAME+"-tab3":
         return html.P('Browse dataset')
     return html.P("This shouldn't ever be displayed...")

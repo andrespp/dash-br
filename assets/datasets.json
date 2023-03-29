@@ -1,6 +1,6 @@
 {
     "areas": [
-        "health", "education", "public services"
+        "Saúde", "Educação", "Serviços Públicos"
     ],
 
     "themes_comment":"temas retirados de https://dados.gov.br/dados/conjuntos-dados",
@@ -408,6 +408,17 @@
             "portal":"https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/indicadores-educacionais",
             "theme":"tdb",
             "description":"Microdados do Censo Escolar da Educacação Básica"
+        },
+
+        {
+            "id":"censo-educacao-superior",
+            "name":"Microdados do Censo Escolar da Educacação Superior",
+            "link":"https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/censo-da-educacao-superior",
+            "publisher":"INEP",
+            "repository":"inep",
+            "portal":"https://www.gov.br/inep/pt-br/areas-de-atuacao/pesquisas-estatisticas-e-indicadores/censo-da-educacao-superior/resultados",
+            "theme":"tdb",
+            "description":"Microdados do Censo Escolar da Educacação Superior"
         },
 
         {
@@ -1051,7 +1062,7 @@
         },
 
         {
-            "id":",informações-e-candidaturas-de-agentes-publicos",
+            "id":"informacoes-e-candidaturas",
             "name":"Portal de Dados Abertos do TSE",
             "theme":"tdb",
             "link":"https://dadosabertos.tse.jus.br/dataset/",
