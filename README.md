@@ -1,18 +1,18 @@
-Painel DW-BRA
-=============
+Painel DW-BR
+============
 
-[![Deploy to dev VM](https://github.com/andrespp/dash-bra/actions/workflows/deploy_dev.yml/badge.svg)](https://github.com/andrespp/dash-bra/actions/workflows/deploy_dev.yml)
+[![Deploy to dev VM](https://github.com/andrespp/dash-br/actions/workflows/deploy_dev.yml/badge.svg)](https://github.com/andrespp/dash-br/actions/workflows/deploy_dev.yml)
 
 ## Introdução
 
-Ferramenta de visualização do [DW-BRA](https://github.com/andrespp/dw-bra/).
+Ferramenta de visualização do [DW-BR](https://github.com/andrespp/dw-br/).
 
 ## Implantação e Utilização
 
 ### Clone do Repositório
 
 ```bash
-$ git clone https://github.com/andrespp/dash-bra.git
+$ git clone https://github.com/andrespp/dash-br.git
 ```
 
 ### Configurar os parâmetros de conexões
@@ -32,7 +32,7 @@ $ conda env create -f environment.yml
 
 ### Execução da Aplicação
 ```bash
-$ conda activate dash-dwbra
+$ conda activate dash-dwbr
 $ python index.py
 ```
 

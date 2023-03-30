@@ -9,7 +9,7 @@ import configparser
 import locale
 import os
 import uetl
-import dwbra
+import dwbr
 
 ## Settings
 CONFIG_FILE = 'config.ini'
@@ -46,7 +46,7 @@ else:
 
 ## FULL DW from parquet files
 try:
-    DWC = dwbra.load_dw(config['FULLDW']['DATADIR'])
+    DWC = dwbr.load_dw(config['FULLDW']['DATADIR'])
 except Exception as e:
     DWC = None
     print(f'WARN: Unable to open parquet files. {e}')
