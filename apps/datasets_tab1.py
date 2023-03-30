@@ -345,7 +345,26 @@ def update_themes_table(refresh, data):
     refresh
 
     try:
+        cnt = tags.lookup_datasets()
+        cnt = cnt[cnt['dataset']!='']
+        cnt = cnt[['theme', 'dataset']].groupby(
+            'theme'
+        ).agg({'dataset':'count'}).reset_index(0)
+        cnt.rename(index=str, columns={'theme':'foo'}, inplace=True)
+
         df = pd.DataFrame(data['themes'], columns=['foo']).sort_values(by='foo')
+
+        df = pd.merge(df, cnt, on='foo', how='outer')
+        df['dataset'].fillna(0, inplace=True)
+        df['dataset'] = df['dataset'].apply(int)
+        df = df.reset_index(drop=True)
+
+        df['id'] = df.apply(
+                lambda x: f"{x['foo']} ({x['dataset']})"
+                ,axis=1
+        )
+        df = df[['id']]
+
     except Exception as e:
         df = pd.DataFrame()
 

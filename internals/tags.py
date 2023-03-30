@@ -77,7 +77,7 @@ def lookup_datasets():
 
     # datasets
     ds = pd.json_normalize(datasets['datasets'])
-    ds = ds[['repository', 'id', 'name']]
+    ds = ds[['theme', 'repository', 'id', 'name']]
     ds.rename(index=str, columns={'id':'dataset'}, inplace=True)
 
     df = pd.merge(
