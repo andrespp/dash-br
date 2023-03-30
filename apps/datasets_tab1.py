@@ -368,12 +368,32 @@ def update_themes_table(refresh, data):
 def update_repos_table(refresh, data):
     refresh
 
-
     try:
+        cnt = tags.lookup_datasets()
+        cnt = cnt[cnt['dataset'] != '']
+        cnt = cnt[['repository','dataset']].groupby(
+            'repository'
+        ).agg({'dataset':'count'}).sort_values(by='dataset', ascending=False)
+        cnt = cnt.reset_index()
+        cnt.rename(index=str, columns={'repository':'id'}, inplace=True)
+        cnt['id'] = cnt['id'].apply(lambda x: 'n/d' if x == '' else x)
+
         df = pd.DataFrame(data['repositories'])
+        df['id'] = df['id'].apply(lambda x: 'n/d' if x == '' else x)
         df = df[['id','name']].sort_values(by='id')
-        df = df[df['id'] != ''].reset_index(drop=True)
+        df = df[['id']].reset_index(drop=True)
+        df = pd.merge(df, cnt, on='id', how='left')
+        df = df.fillna(0)
+        df['dataset'] = df['dataset'].apply(int)
+        df = df.sort_values(by='dataset', ascending=False)
+        df = df.reset_index(drop=True)
+
+        df['id'] = df.apply(
+                lambda x: f"{x['id']} ({x['dataset']})"
+                ,axis=1
+        )
         df = df[['id']]
+
         df['id'] = df['id'].apply(
             lambda x: html.Div(
                     x,
@@ -421,6 +441,8 @@ def update_datasets_table(refresh, data, repo_click, repo_name):
                 repo = ''
             else:
                 repo = repo_name[repo_index]
+                repo = repo.split()[0]
+
         else:
             repo_index = -1
             repo = ''
@@ -429,6 +451,9 @@ def update_datasets_table(refresh, data, repo_click, repo_name):
         df = pd.DataFrame(data['datasets'])
         df = df[['id','name', 'repository']].sort_values(by='id')
         df = df[df['id'] != ''].reset_index(drop=True)
+        df['repository'] = df['repository'].apply(
+            lambda x: 'n/d' if x == '' else x
+        )
 
         #
         df = pd.merge(df, cnt, on='id', how='left')
