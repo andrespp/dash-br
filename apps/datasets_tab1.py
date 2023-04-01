@@ -365,6 +365,15 @@ def update_themes_table(refresh, data):
         )
         df = df[['id']]
 
+        df['id'] = df['id'].apply(
+            lambda x: html.Div(
+                    x,
+                    className='p-0 m-0',
+                    id={'type':'theme-table', 'index':x}
+                )
+            if x else None
+        )
+
     except Exception as e:
         df = pd.DataFrame()
 
@@ -383,14 +392,35 @@ def update_themes_table(refresh, data):
     Output(DF_NAME+'-repos-table','children'),
     Input(DF_NAME+'-refresh-btn', 'n_clicks'),
     Input(DF_NAME+'-datasets', 'data'),
+    Input({'type': 'theme-table', 'index': ALL}, 'n_clicks_timestamp'),
+    Input({'type': 'theme-table', 'index': ALL}, 'children'),
 )
-def update_repos_table(refresh, data):
+def update_repos_table(refresh, data, theme_click, theme_name):
     refresh
 
     try:
-        cnt = tags.lookup_datasets()
-        cnt = cnt[cnt['dataset'] != '']
-        cnt = cnt[['repository','dataset']].groupby(
+        # Identify theme
+        if len(theme_click) > 0:
+            theme_click = [0 if x is None else x for x in theme_click]
+            theme_index = theme_click.index(max(theme_click))
+            if max(theme_click)==0:
+                theme_index = -1
+                theme = ''
+            else:
+                theme = theme_name[theme_index]
+                theme = theme.split(' (')[0]
+        else:
+            theme_index = -1
+            theme = ''
+
+        # lookup for repos containing datasets with this theme
+        ds = tags.lookup_datasets()
+        ds = ds[ds['dataset'] != ''] # remove empty datasets
+        if theme != '':
+            ds = ds[ds['theme']==theme]
+
+        # Count datasets by repo
+        cnt = ds[['repository','dataset']].groupby(
             'repository'
         ).agg({'dataset':'count'}).sort_values(by='dataset', ascending=False)
         cnt = cnt.reset_index()
@@ -401,7 +431,7 @@ def update_repos_table(refresh, data):
         df['id'] = df['id'].apply(lambda x: 'n/d' if x == '' else x)
         df = df[['id','name']].sort_values(by='id')
         df = df[['id']].reset_index(drop=True)
-        df = pd.merge(df, cnt, on='id', how='left')
+        df = pd.merge(df, cnt, on='id', how='right')
         df = df.fillna(0)
         df['dataset'] = df['dataset'].apply(int)
         df = df.sort_values(by='dataset', ascending=False)
@@ -442,14 +472,32 @@ def update_repos_table(refresh, data):
     Input(DF_NAME+'-datasets', 'data'),
     Input({'type': 'repo-table', 'index': ALL}, 'n_clicks_timestamp'),
     Input({'type': 'repo-table', 'index': ALL}, 'children'),
+    Input({'type': 'theme-table', 'index': ALL}, 'n_clicks_timestamp'),
+    Input({'type': 'theme-table', 'index': ALL}, 'children'),
 )
-def update_datasets_table(refresh, data, repo_click, repo_name):
+def update_datasets_table(
+        refresh, data, repo_click, repo_name, theme_click, theme_name
+    ):
     refresh
 
     try:
         cnt = tags.lookup_datasets()
         cnt = cnt[['dataset', 'article']]
         cnt.rename(index=str, columns={'dataset':'id'}, inplace=True)
+
+        # Identify theme
+        if len(theme_click) > 0:
+            theme_click = [0 if x is None else x for x in theme_click]
+            theme_index = theme_click.index(max(theme_click))
+            if max(theme_click)==0:
+                theme_index = -1
+                theme = ''
+            else:
+                theme = theme_name[theme_index]
+                theme = theme.split(' (')[0]
+        else:
+            theme_index = -1
+            theme = ''
 
         # Identify repo selected (clicked on repo table)
         if len(repo_click) > 0:
@@ -468,7 +516,7 @@ def update_datasets_table(refresh, data, repo_click, repo_name):
 
         # list datasets
         df = pd.DataFrame(data['datasets'])
-        df = df[['id','name', 'repository']].sort_values(by='id')
+        df = df[['id','name', 'repository', 'theme']].sort_values(by='id')
         df = df[df['id'] != ''].reset_index(drop=True)
         df['repository'] = df['repository'].apply(
             lambda x: 'n/d' if x == '' else x
@@ -481,7 +529,11 @@ def update_datasets_table(refresh, data, repo_click, repo_name):
                 ,axis=1
         )
 
-        # select clicked repository datasets only
+        # select clicked themes only datasets
+        if theme != '':
+            df = df[df['theme'] == theme]
+
+        # select clicked repository only datasets
         if repo != '':
             df = df[df['repository'] == repo]
 
