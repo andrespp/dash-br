@@ -320,7 +320,7 @@
             "publisher":"IBGE",
             "repository":"ibge",
             "portal":"ibge.gov.br",
-            "theme":"tdb",
+            "theme":"Economia e Finanças",
             "description":""
         },
 
@@ -330,6 +330,8 @@
             "link":"https://www.data.rio/documents/transporte-rodovi%C3%A1rio-gps-dos-%C3%B4nibus/explore",
             "publisher":"Prefeitura do Rio de Janeiro",
             "repository":"data-rio",
+            "portal":"",
+            "theme":"Transportes e Trânsito",
             "description":"Posição geográfica de veículos do modal SPPO capturados minuto a minuto"
         },
 
@@ -340,7 +342,7 @@
             "publisher":"Prefeitura de São Paulo",
             "repository":"prefeitura-sp",
             "portal":"https://observasampa.prefeitura.sp.gov.br/",
-            "theme":"tdb",
+            "theme":"Geografia",
             "description":"Indicadores georreferenciados da Prefeitura e da cidade, acompanhado de análises setoriais importantes para a elaboração e avaliação de políticas públicas."
         },
 
@@ -351,7 +353,7 @@
             "publisher":"SEADE",
             "repository":"seade-repo",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Saúde",
             "description":"Óbitos de crianças de até 1 ano de idade ocorridos nos municípios do estado de São Paulo"
         },
 
@@ -362,7 +364,7 @@
             "publisher":"SEADE",
             "repository":"seade-repo",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Saúde",
             "description":"Microdados da base de nascidos vivos do Estado de São Paulo"
         },
 
@@ -373,7 +375,7 @@
             "publisher":"SEADE",
             "repository":"seade-repo",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Saúde",
             "description":"O produto Estatísticas Vitais contempla os dados de nascidos vivos e óbitos para o acompanhamento das transformações demográficas na população paulista. As informações são atualizadas mensalmente e produzidas com base nos registros dos eventos nos cartórios do Estado de SP."
         },
 
@@ -384,7 +386,7 @@
             "publisher":"Fiocruz",
             "repository":"pcdas-fiocruz",
             "portal":"https://pcdas.icict.fiocruz.br/conjunto-de-dados/sistema-de-informacoes-de-mortalidade-sim/analise-visual/",
-            "theme":"tdb",
+            "theme":"Saúde",
             "description":"Dados do Sistema de Informação sobre Mortalidade (SIM) reunidos pela Plataforma de Ciência de Dados aplicada à Saúde (PCDaS). Os dados foram obtidos junto ao DATASUS (Ministério da Saúde), tratados e enriquecidos seguindo uma metodologia própria de ETL da PCDaS, resultando em um dataset anual com todos os registros das declarações de óbito contidas no SIM à partir de 1996. A atualização dos dados é realizada pelo DATASUS e a PCDaS extrai os registros anuais assim que disponibilizados. As colunas com nomes em MAIÚSCULO representam dados originais advindos do DATASUS e colunas com nomes iniciando em minúsculo representam dados resultantes de transformação ou enriquecimento."
         },
 
@@ -395,7 +397,7 @@
             "publisher":"SUS",
             "repository":"datasus",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Saúde",
             "description":"O Sistema de Informação sobre Mortalidade (SIM), desenvolvido pelo Ministério da Saúde em 1975, é produto da unificação de mais de quarenta modelos de Declaração de Óbito utilizados ao longo dos anos, para coletar dados sobre mortalidade no país."
         },
 
@@ -406,7 +408,7 @@
             "publisher":"INEP",
             "repository":"inep",
             "portal":"https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/indicadores-educacionais",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Microdados do Censo Escolar da Educacação Básica"
         },
 
@@ -417,7 +419,7 @@
             "publisher":"INEP",
             "repository":"inep",
             "portal":"https://www.gov.br/inep/pt-br/areas-de-atuacao/pesquisas-estatisticas-e-indicadores/censo-da-educacao-superior/resultados",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Microdados do Censo Escolar da Educacação Superior"
         },
 
@@ -428,7 +430,7 @@
             "publisher":"MEC",
             "repository":"",
             "portal":"http://cnct.mec.gov.br/",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"O Catálogo Nacional de Cursos Técnicos (CNCT) disciplina a oferta de cursos de educação profissional técnica de nível médio para orientar e informar as instituições de ensino, os estudantes, as empresas e a sociedade em geral. Seu conteúdo é atualizado periodicamente pelo Ministério da Educação para contemplar novas demandas socioeducacionais."
         },
 
@@ -439,7 +441,7 @@
             "publisher":"Tesouro Nacional",
             "repository":"tesourotransparente",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Geografia",
             "description":"Lista de municípios do SIAFI com código SIAFI e código IBGE"
         },
 
@@ -450,7 +452,7 @@
             "publisher":"UnB",
             "repository":"unb",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Relação dos cursos de graduação da Universidade de Brasília"
         },
 
@@ -461,7 +463,7 @@
             "publisher":"UFRN",
             "repository":"ufrn",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -472,7 +474,7 @@
             "publisher":"UFRN",
             "repository":"ufrn",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -483,7 +485,7 @@
             "publisher":"UFRN",
             "repository":"ufrn",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -494,7 +496,7 @@
             "publisher":"UFRN",
             "repository":"ufrn",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -505,7 +507,7 @@
             "publisher":"IFC",
             "repository":"ifc",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -516,7 +518,7 @@
             "publisher":"IFC",
             "repository":"ifc",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -527,7 +529,7 @@
             "publisher":"IFC",
             "repository":"ifc",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -538,7 +540,7 @@
             "publisher":"UFMA",
             "repository":"ufma",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -549,7 +551,7 @@
             "publisher":"UFMA",
             "repository":"ufma",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -560,7 +562,7 @@
             "publisher":"UFMA",
             "repository":"ufma",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -571,7 +573,7 @@
             "publisher":"IFPB",
             "repository":"ifpb",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -582,7 +584,7 @@
             "publisher":"IFPB",
             "repository":"ifpb",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Edcuação",
             "description":""
         },
 
@@ -593,7 +595,7 @@
             "publisher":"IFRN",
             "repository":"ifrn",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -604,7 +606,7 @@
             "publisher":"IFRN",
             "repository":"ifrn",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -615,7 +617,7 @@
             "publisher":"IFRN",
             "repository":"ifrn",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -626,7 +628,7 @@
             "publisher":"UFCA",
             "repository":"ufca",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -637,7 +639,7 @@
             "publisher":"UFCA",
             "repository":"ufca",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -648,7 +650,7 @@
             "publisher":"UFCA",
             "repository":"ufca",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -659,7 +661,7 @@
             "publisher":"UFCSPA",
             "repository":"ufcspa",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -670,7 +672,7 @@
             "publisher":"UFCSPA",
             "repository":"ufcspa",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -681,7 +683,7 @@
             "publisher":"UFCSPA",
             "repository":"ufcspa",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -692,7 +694,7 @@
             "publisher":"UFERSA",
             "repository":"ufersa",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -703,7 +705,7 @@
             "publisher":"UFERSA",
             "repository":"ufersa",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -714,7 +716,7 @@
             "publisher":"UFFS",
             "repository":"uffs",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -725,7 +727,7 @@
             "publisher":"UFFS",
             "repository":"uffs",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
         {
@@ -736,7 +738,7 @@
             "publisher":"UFFS",
             "repository":"uffs",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -747,7 +749,7 @@
             "publisher":"UFMS",
             "repository":"ufms",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Dados dos alunos de graduação presencial e educação a distância. (nome, rga_descaracterizado, curso, unidade, situação) da UFMS"
         },
 
@@ -758,7 +760,7 @@
             "publisher":"UFMS",
             "repository":"ufms",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Lista de Cursos de Graduação (nome, cidade, grau, turno, modalidade, unidade, tipo de oferta, área de conhecimento, publicação, portaria, situação) da UFMS"
         },
 
@@ -769,7 +771,7 @@
             "publisher":"UFMS",
             "repository":"ufms",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Dados dos alunos de pós-graduação (nome, rga_descaracterizado, curso, unidade, situação) da UFMS"
         },
 
@@ -780,7 +782,7 @@
             "publisher":"UFMS",
             "repository":"ufms",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Lista de Cursos da Pós-Graduação (nome, cidade, nível, modalidade, área, unidade, coordenador, resolução, diário oficial, situação) da UFMS"
         },
 
@@ -791,7 +793,7 @@
             "publisher":"UFOB",
             "repository":"dadosgovbr",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -802,7 +804,7 @@
             "publisher":"UFOB",
             "repository":"dadosgovbr",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Informações sobre cursos de graduação da UFOB."
         },
 
@@ -813,7 +815,7 @@
             "publisher":"UFOB",
             "repository":"dadosgovbr",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Relação nominal dos estudantes matriculados nos cursos de graduação e pós-graduação."
         },
 
@@ -824,7 +826,7 @@
             "publisher":"UFOP",
             "repository":"ufop",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Alunos Ingressantes nos cursos de Graduação da Universidade Federal de Ouro Preto divididos por ano/semestre e modalidade de ingresso."
         },
 
@@ -835,7 +837,7 @@
             "publisher":"UFOP",
             "repository":"ufop",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Dados funcionais dos Docentes UFOP"
         },
 
@@ -846,7 +848,7 @@
             "publisher":"UFOP",
             "repository":"ufop",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Alunos de Pós-Graduação da UFOP a partir do ano de 1992"
         },
 
@@ -857,7 +859,7 @@
             "publisher":"UFPB",
             "repository":"ufpb",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Dados referentes aos cursos de graduação"
         },
 
@@ -868,7 +870,7 @@
             "publisher":"UFPEL",
             "repository":"ufpel",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Dados referentes ao número de alunos matriculados, ingressantes, formados e em mobilidade acadêmica da graduação presencial e a distância da UFPEL."
         },
 
@@ -879,7 +881,7 @@
             "publisher":"UFPEL",
             "repository":"ufpel",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Dados relacionados aos alunos de pós-graduação, contendo informações referentes ao número de alunos matriculados, ingressantes e formados e em mobilidade acadêmica."
         },
 
@@ -890,7 +892,7 @@
             "publisher":"UFPEL",
             "repository":"ufpel",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Relação de Cursos da Instituição com seus respectivos códigos, nível, modalidade, grau, data de início e situação."
         },
 
@@ -901,7 +903,7 @@
             "publisher":"UFPI",
             "repository":"ufpi",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Listagens de cursos de graduação da UFPI."
         },
 
@@ -912,7 +914,7 @@
             "publisher":"UFPI",
             "repository":"ufpi",
             "portal":"https://dados.ufpi.br/dataset/discentes-graduacao-ativos",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Relação de discente dos cursos de graduação da UFPI"
         },
 
@@ -923,7 +925,7 @@
             "publisher":"UFPI",
             "repository":"ufpi",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Relação de docentes da UFPI."
         },
 
@@ -934,7 +936,7 @@
             "publisher":"UFPI",
             "repository":"ufpi",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Relação dos discentes de pós graduação da UFPI"
         },
 
@@ -946,7 +948,7 @@
             "publisher":"UFPI",
             "repository":"ufpi",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Listagem dos cursos de pós-graduação na UFPI"
         },
 
@@ -957,7 +959,7 @@
             "publisher":"UFSJ",
             "repository":"ufsj",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Relação dos cursos de pós-graduação da UFSJ"
         },
 
@@ -968,7 +970,7 @@
             "publisher":"UFSJ",
             "repository":"ufsj",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":""
         },
 
@@ -979,7 +981,7 @@
             "publisher":"UFV",
             "repository":"ufv",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Atuação docente"
         },
 
@@ -990,7 +992,7 @@
             "publisher":"UFV",
             "repository":"ufv",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Relação de todos os cursos da UFV"
         },
 
@@ -1001,7 +1003,7 @@
             "publisher":"UFV",
             "repository":"ufv",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Relação de alunos ingressantes, por ano. São listados apenas alunos que ingressaram na UFV a partir de 2010. Os foram anonimizados em conformidade à LGPD."
         },
 
@@ -1012,7 +1014,7 @@
             "publisher":"UNIFESSPA",
             "repository":"unifesspa",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Lista de curso de graduação da Unifesspa."
         },
         {
@@ -1023,7 +1025,7 @@
             "publisher":"UNIFESSPA",
             "repository":"unifesspa",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Lista dos cursos de pós-graduação"
         },
 
@@ -1034,7 +1036,7 @@
             "publisher":"UNIFESSPA",
             "repository":"unifesspa",
             "portal":"",
-            "theme":"tdb",
+            "theme":"Educação",
             "description":"Lista de servidores docentes com titulação acadêmica na Unifesspa."
         },
 
@@ -1045,7 +1047,7 @@
             "publisher":"IBGE",
             "repository":"ibge",
             "portal":"ibge.gov.br",
-            "theme":"tdb",
+            "theme":"Economia e Finanças",
             "description":"Índece de desenvolvimento humano dos estados brasileiros"
         },
 
@@ -1053,23 +1055,21 @@
             "id":"dados-meteorologicos",
             "name":"Dados meteorológicos históricos anuais",
             "link":"https://portal.inmet.gov.br/dadoshistoricos",
-            "theme":"tdb",
             "publisher":"INMET",
             "repository":"inmet",
             "portal":"https://portal.inmet.gov.br",
-            "theme":"tdb",
+            "theme":"Geografia",
             "description":"Informações sobre a meteorologia brasileira dividida por ano"
         },
 
         {
             "id":"informacoes-e-candidaturas",
             "name":"Portal de Dados Abertos do TSE",
-            "theme":"tdb",
             "link":"https://dadosabertos.tse.jus.br/dataset/",
             "publisher":"TSE",
             "repository":"tse",
             "portal":"https://dadosabertos.tse.jus.br",
-            "theme":"tdb",
+            "theme":"Governo e Política",
             "description":"O RDE (repositório de dados eleitorais) disponibiliza dados eleitorais desde o ano de 1945"
         },
 
@@ -1080,7 +1080,7 @@
             "publisher":"Prefeitura da Cidade do Rio de Janeiro",
             "repository":"data.rio",
             "portal":"https://www.data.rio",
-            "theme":"tdb",
+            "theme":"Transportes e Trânsito",
             "description":"Arquivo de informações de transporte público da cidade do Rio de Janeiro em formato GTFS (Especificação Geral sobre Feeds de Transporte Público), contendo dados sobre rotas, paradas e horários de serviços de ônibus (urbanos e executivos) e BRTs da cidade do Rio de Janeiro regulamentados pela Secretaria Municipal de Transportes."
         },
 
@@ -1091,7 +1091,7 @@
             "publisher":"",
             "repository":"",
             "portal":"",
-            "theme":"tdb",
+            "theme":"tbd",
             "description":""
         }
     ]
