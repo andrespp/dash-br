@@ -532,7 +532,7 @@
             "type": "static datasets",
             "description": "Dados das linhas de ônibus da cidade do Rio de Janeiro"
         },
-        "datasets":["dados-ônibus-rio", "gps-onibus-rio"],
+        "datasets":["gtfs-onibus-rio", "gps-onibus-rio"],
         "dificulties":[
             "",
             "",

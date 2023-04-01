@@ -584,7 +584,7 @@
             "publisher":"IFPB",
             "repository":"ifpb",
             "portal":"",
-            "theme":"Edcuação",
+            "theme":"Educação",
             "description":""
         },
 
@@ -1074,12 +1074,12 @@
         },
 
         {
-            "id":"dados-ônibus-rio",
+            "id":"gtfs-onibus-rio",
             "name":"GTFS do Rio de Janeiro",
             "link":"https://www.data.rio/datasets/gtfs-do-rio-de-janeiro/about",
             "publisher":"Prefeitura da Cidade do Rio de Janeiro",
-            "repository":"data.rio",
-            "portal":"https://www.data.rio",
+            "repository":"data-rio",
+            "portal":"https://www.d.ata.rio",
             "theme":"Transportes e Trânsito",
             "description":"Arquivo de informações de transporte público da cidade do Rio de Janeiro em formato GTFS (Especificação Geral sobre Feeds de Transporte Público), contendo dados sobre rotas, paradas e horários de serviços de ônibus (urbanos e executivos) e BRTs da cidade do Rio de Janeiro regulamentados pela Secretaria Municipal de Transportes."
         },
