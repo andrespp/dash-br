@@ -565,14 +565,76 @@
     },
     
     {
+        "name":"simone-farias2023",
+        "year":"2023",
+        "title":"Food insecurity among families with infants born during the COVID-19 pandemic in Fortaleza, Northeast Brazil",
+        "areas":["Serviços Públicos"],
+        "themes":["Saúde","Ciência, Inovação e Comunicação"],
+        "data-strategy": {
+            "type": "static datasets",
+            "description": "O artigo utiliza de datasets que oferecem diversas informações populacionais brasileiras"
+        },
+        "datasets":["amostra-de-domicilio", "orcamento-alimentar", "pib-municipios","estimativa-populacao-ibge"],
+        "dificulties":[
+            "",
+            "",
+            "",
+            ""
+        ],
+        "link":"https://link.springer.com/article/10.1186/s41043-023-00354-w",
+        "repo":""
+    },
+
+    {
+        "name":"alexandre-fornari2023",
+        "year":"2023",
+        "title":"Impact of COVID-19 on surgical procedures for stress urinary incontinence in the Brazilian public health system",
+        "areas":["Serviços Públicos"],
+        "themes":["Saúde"],
+        "data-strategy": {
+            "type": "static datasets",
+            "description": ""
+        },
+        "datasets":["IDH", ""],
+        "dificulties":[
+            "",
+            "",
+            "",
+            ""
+        ],
+        "link":"https://pubmed.ncbi.nlm.nih.gov/36811634/",
+        "repo":""
+    },
+
+    {
+        "name":"pedro-peixoto2023",
+        "year":"2023",
+        "title":"Impact of network centrality and income on slowing infection spread after outbreaks",
+        "areas":["Serviços Públicos"],
+        "themes":["Saúde","Habitação, Saneamento e Urbanismo"],
+        "data-strategy": {
+            "type": "static datasets",
+            "description": ""
+        },
+        "datasets":["censo-demografico", ""],
+        "dificulties":[
+            "",
+            "",
+            "",
+            ""
+        ],
+        "link":"https://appliednetsci.springeropen.com/articles/10.1007/s41109-023-00540-z#Fig1",
+        "repo":""
+    },
+
+    {
         "name":"",
         "year":"",
         "title":"",
-        "areas":[""],
+        "areas":["Serviços Públicos"],
         "themes":[""],
-		"description":"",
         "data-strategy": {
-            "type": "",
+            "type": "static datasets",
             "description": ""
         },
         "datasets":["", ""],
