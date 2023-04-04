@@ -1085,6 +1085,39 @@
         },
 
         {
+            "id":"amostra-de-domicilios",
+            "name":"Pesquisa Nacional por Amostra de Domicílios",
+            "link":"https://www.ibge.gov.br/estatisticas/sociais/populacao/9127-pesquisa-nacional-por-amostra-de-domicilios.html",
+            "publisher":"IBGE",
+            "repository":"ibge",
+            "portal":"https://www.ibge.gov.br",
+            "theme":"Dados Estratégicos",
+            "description":"O dataset oferece informações financeiras e educacionais sobre domicílios brasileiros"
+        },
+
+        {
+            "id":"orcamento-alimentar",
+            "name":"POF - Pesquisa de Orçamentos Familiares",
+            "link":"https://www.ibge.gov.br/estatisticas/sociais/populacao/24786-pesquisa-de-orcamentos-familiares-2.html",
+            "publisher":"IBGE",
+            "repository":"ibge",
+            "portal":"https://www.ibge.gov.br",
+            "theme":"Dados Estratégicos",
+            "description":"O dataset oferece informações orçamentárias sobre famílias brasileiras"
+        },
+
+        {
+            "id":"censo-demografico",
+            "name":"Censo Demográfico",
+            "link":"https://www.ibge.gov.br/estatisticas/sociais/populacao/9662-censo-demografico-2010.html",
+            "publisher":"IBGE",
+            "repository":"ibge",
+            "portal":"https://www.ibge.gov.br",
+            "theme":"Geografia",
+            "description":"Censo demográfico brasileiro"
+        },
+
+        {
             "id":"",
             "name":"",
             "link":"",
