@@ -22,7 +22,7 @@ RUN apt-get update && apt-get -y install unixodbc-dev python3-psycopg2  \
 		libpq-dev python3-gv graphviz
 
 # Setup Conda Environment
-ARG CONDA_ENV_NAME=dash-dwbra
+ARG CONDA_ENV_NAME=dash-dwbr
 COPY ./environment.yml ./
 RUN conda env create -f environment.yml
 RUN echo "source activate $CONDA_ENV_NAME" > ~/.bashrc

@@ -1,0 +1,1098 @@
+{
+    "areas": [
+        "Dados Públicos"
+    ],
+
+    "themes_comment":"temas retirados de https://dados.gov.br/dados/conjuntos-dados",
+
+    "themes": [
+        "Ciência, Inovação e Comunicação",
+        "Comércio, Serviços e Turismo",
+        "Cultura, Lazer e Esporte",
+        "Dados Estratégicos",
+        "Defesa e Segurança",
+        "Economia e Finanças",
+        "Educação",
+        "Equipamentos Públicos",
+        "Geografia",
+        "Governo e Política",
+        "Habitação, Saneamento e Urbanismo",
+        "Indústria",
+        "Justiça e Legislação",
+        "Saúde",
+        "Transportes e Trânsito"
+    ],
+
+    "repositories":[
+
+        {
+            "id":"tse",
+            "name":"Portal de dados abertos do TSE",
+            "description":"O RDE (repositório de dados eleitorais) disponibiliza dados eleitorais desde o ano de 1945",
+            "link":"https://dadosabertos.tse.jus.br/"
+        },
+
+        {
+            "id":"prefeitura-sp",
+            "name":"Portal de dados abertos da Prefeitura de São Paulo",
+            "description":"Dados Abertos da prefeitura de São Paulo",
+            "link":"http://dados.prefeitura.sp.gov.br/"
+        },
+
+        {
+            "id":"pcdas-fiocruz",
+            "name":"Plataforma de Ciência de Dados aplicada à Saúde",
+            "description":"A PCDaS é uma Plataforma pública, gratuita e em nuvem que disponibiliza grande quantidade de microdados e ferramentas de análise para pesquisas no campo da saúde",
+            "link":"https://pcdas.icict.fiocruz.br/"
+        },
+
+        {
+            "id":"datasus",
+            "name":"Departamento de Informática do Sistema Único de Saúde",
+            "description":"O DATASUS disponibiliza informações que podem servir para subsidiar análises objetivas da situação sanitária, tomadas de decisão baseadas em evidências e elaboração de programas de ações de saúde.",
+            "link":"https://opendatasus.saude.gov.br/dataset"
+        },
+
+        {
+            "id":"seade-repo",
+            "name":"Respositório da Fundação Sistema Estadual de Análise de Dados",
+            "description":"Repositório da fundação vinculada à Secretaria da Fazenda e Planejamento de São Paulo, centro de referência nacional na produção e disseminação de análises e estatísticas socioeconômicas e demográficas",
+            "link":"https://repositorio.seade.gov.br/"
+        },
+
+        {
+            "id":"estado-sp",
+            "name":"http://catalogo.governoaberto.sp.gov.br/dataset",
+            "description":"Governo Aberto SP é uma iniciativa do Governo do Estado de São Paulo, de disponibilização, através da internet, de documentos, informações e dados governamentais de domínio público para a livre utilização pela sociedade, garantindo à mesma, acesso aos dados primários, de forma que possam ser reutilizados produzindo novas informações e aplicações digitais para a sociedade.",
+            "link":"http://catalogo.governoaberto.sp.gov.br/dataset"
+        },
+
+        {
+            "id":"data-rio",
+            "name":"Repositório de Dados da Cidade do Rio de Janeiro",
+            "description":"",
+            "link":"https://www.data.rio/"
+        },
+
+        {
+            "id":"ibge",
+            "name":"Downloads IBGE",
+            "description":"Download de conteúdos das nossas pesquisas estruturais, censos, entre outras, na área de estatísticas",
+            "link":"https://www.ibge.gov.br/estatisticas/downloads-estatisticas.html"
+        },
+
+        {
+            "id":"inep",
+            "name":"Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira",
+            "description":"Os microdados do Inep reúnem um conjunto de informações detalhadas relacionadas às pesquisas, aos exames e avaliações do Instituto.",
+            "link":"https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados"
+        },
+
+        {
+            "id":"tesourotransparente",
+            "name":"Tesouro Nacional Transparente",
+            "description":"Informações produzidas pelo Tesouro Nacional que são abertas, sem tratamento, de livre utilização e distribuição, desde que citada a fonte",
+            "link":"https://www.tesourotransparente.gov.br/ckan/dataset"
+        },
+
+        {
+            "id":"unb",
+            "name":"Dados Abertos UnB",
+            "description":"O Portal de Dados Abertos da Universidade de Brasília - UnB é uma ferramenta cujo objetivo principal é disponibilizar para toda a comunidade dados e informações públicas da Instituição, possibilitando a concretização do acesso à informação (regulamentado pela Lei de Acesso à Informação Pública - Lei nº 12.527/2011) e o acompanhamento do funcionamento da Universidade.",
+            "link":"http://dadosabertos.unb.br/"
+        },
+
+        {
+            "id":"dadosgovbr",
+            "name":"Portal de dados abertos do Governo Federal",
+            "description":"",
+            "link":"https://dados.gov.br/home"
+        },
+
+        {
+            "id":"ufrn",
+            "name":"Portal de dados da UFRN",
+            "description":"",
+            "link":"https://dados.ufrn.br"
+        },
+
+        {
+            "id":"ifc",
+            "name":"Portal de dados do IFC",
+            "description":"",
+            "link":"https://dadosabertos.ifc.edu.br/"
+        },
+
+        {
+            "id":"ufma",
+            "name":"Portal de dados da UFMA",
+            "description":"",
+            "link":"https://dadosabertos.ufma.br/"
+        },
+
+        {
+            "id":"iffar",
+            "name":"API de dados do Instituto Federal de Farroupilha",
+            "description":"",
+            "link":"https://dados.iffarroupilha.edu.br/doc/v1/"
+        },
+
+        {
+            "id":"ifpb",
+            "name":"Portal de dados do IFPB",
+            "description":"",
+            "link":"https://dados.ifpb.edu.br/"
+        },
+
+        {
+            "id":"ifrn",
+            "name":"IFRN",
+            "description":"",
+            "link":"https://dados.ifrn.edu.br/"
+        },
+
+        {
+            "id":"ufca",
+            "name":"UFCA",
+            "description":"",
+            "link":"https://dados.ufca.edu.br/"
+        },
+
+        {
+            "id":"ufcspa",
+            "name":"UFCSPA",
+            "description":"",
+            "link":"https://dados.ufcspa.edu.br/"
+        },
+
+        {
+            "id":"ufersa",
+            "name":"UFERSA",
+            "description":"",
+            "link":"https://dadosabertos.ufersa.edu.br"
+        },
+
+        {
+            "id":"uffs",
+            "name":"UFFS",
+            "description":"",
+            "link":"https://dados.uffs.edu.br/"
+        },
+
+        {
+            "id":"ufms",
+            "name":"UFMS",
+            "description":"",
+            "link":"https://dadosabertos.ufms.br/"
+        },
+
+        {
+            "id":"ufpo",
+            "name":"UFOP",
+            "description":"",
+            "link":"http://dados.ufop.br/"
+        },
+
+        {
+            "id":"ufpb",
+            "name":"UFPB",
+            "description":"",
+            "link":"https://dadosabertos.ufpb.br/"
+        },
+
+        {
+            "id":"ufpel",
+            "name":"UFPEL",
+            "description":"",
+            "link":"https://dados.ufpel.edu.br/"
+        },
+
+        {
+            "id":"ufpi",
+            "name":"UFPI",
+            "description":"",
+            "link":"https://dados.ufpi.br/"
+        },
+
+        {
+            "id":"ufsj",
+            "name":"UFSJ",
+            "description":"",
+            "link":"http://dados.ufsj.edu.br/"
+        },
+
+        {
+            "id":"ufv",
+            "name":"UFV",
+            "description":"",
+            "link":"https://dados.ufv.br/"
+        },
+
+        {
+            "id":"unifesspa",
+            "name":"UNIFESSPA",
+            "description":"Universidade Federal do Sul e Sudeste do Pará",
+            "link":"https://dados.unifesspa.edu.br/"
+        },
+
+        {
+            "id":"inmet",
+            "name":"Instituto Nacional de Meteorologia",
+            "description":"O Instituto Nacional de Meteorologia do Brasil é um órgão federal que prover informações meteorológicas através de monitoramento, análise e previsão do tempo e clima",
+            "link":"https://bdmep.inmet.gov.br"
+        },
+
+        {
+            "id":"emac",
+            "name":"Cadastro Nacional de Cursos e Instituições de Educação Superior Cadastro e-MEC",
+            "description":"Base de dados oficial dos cursos e Instituições de Educação Superior - IES, independentemente de Sistema de Ensino.",
+            "link":"https://emec.mec.gov.br"
+        },
+
+        {
+            "id":"",
+            "name":"",
+            "description":"",
+            "link":""
+        }
+    ],
+
+    "datasets": [
+        {
+            "id":"nomes-censo-2010",
+            "name":"Nomes do Brasil Censo 2010",
+            "link":"https://censo2010.ibge.gov.br/nomes/",
+            "publisher":"IBGE",
+            "repository":"ibge",
+            "portal":"ibge.gov.br",
+            "theme":"Geografia",
+            "description":""
+        },
+
+        {
+            "id":"area-territorial-ibge",
+            "name":"Áreas Territoriais",
+            "link":"https://www.ibge.gov.br/geociencias/organizacao-do-territorio/estrutura-territorial/15761-areas-dos-municipios.html?=&t=downloads",
+            "publisher":"IBGE",
+            "repository":"ibge",
+            "portal":"https://www.ibge.gov.br/cidades-e-estados",
+            "theme":"Geografia",
+            "description":"Trata-se do reprocessamento anual dos valores das áreas territoriais dos 5.568 municípios, mais Distrito Federal e Distrito Estadual de Fernando de Noronha, produzidas pelo IBGE."
+        },
+
+        {
+            "id":"estimativa-populacao-ibge",
+            "name":"Estimativas da População",
+            "link":"https://www.ibge.gov.br/estatisticas/sociais/populacao/9103-estimativas-de-populacao.html?=&t=downloads",
+            "publisher":"IBGE",
+            "repository":"ibge",
+            "portal":"ibge.gov.br",
+            "theme":"Geografia",
+            "description":"Fornece estimativas do total da população dos Municípios e das Unidades da Federação brasileiras, com data de referência em 1o de julho, para o ano calendário corrente"
+        },
+
+        {
+            "id":"pb-census-1989-2012",
+            "name":"Dataset on Brazilian Participatory Budgeting: 1989 to 2012",
+            "link":"https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/EDSNJS",
+            "publisher":"Individual",
+            "repository":"",
+            "portal":"dataverse.harvard.edu",
+            "theme":"Governo e Política",
+            "description":""
+        },
+
+        {
+            "id":"contagem-populacao",
+            "name":"Contagem da População",
+            "link":"https://www.ibge.gov.br/estatisticas/sociais/populacao/9065-contagem-da-populacao.html?=&t=o-que-e",
+            "publisher":"IBGE",
+            "repository":"ibge",
+            "portal":"ibge.gov.br",
+            "theme":"Geografia",
+            "description":""
+        },
+
+        {
+            "id":"pib-municipios",
+            "name":"Produto Interno Bruto dos Municípios",
+            "link":"https://www.ibge.gov.br/estatisticas/economicas/contas-nacionais/9088-produto-interno-bruto-dos-municipios.html?=&t=o-que-e",
+            "publisher":"IBGE",
+            "repository":"ibge",
+            "portal":"ibge.gov.br",
+            "theme":"Economia e Finanças",
+            "description":""
+        },
+
+        {
+            "id":"gps-onibus-rio",
+            "name":"Transporte Rodoviário: GPS dos Ônibus",
+            "link":"https://www.data.rio/documents/transporte-rodovi%C3%A1rio-gps-dos-%C3%B4nibus/explore",
+            "publisher":"Prefeitura do Rio de Janeiro",
+            "repository":"data-rio",
+            "portal":"",
+            "theme":"Transportes e Trânsito",
+            "description":"Posição geográfica de veículos do modal SPPO capturados minuto a minuto"
+        },
+
+        {
+            "id":"observasampa",
+            "name":"Indicadores da Cidade de São Paulo",
+            "link":"http://dados.prefeitura.sp.gov.br/dataset/indicadores-da-cidade-de-sao-paulo",
+            "publisher":"Prefeitura de São Paulo",
+            "repository":"prefeitura-sp",
+            "portal":"https://observasampa.prefeitura.sp.gov.br/",
+            "theme":"Geografia",
+            "description":"Indicadores georreferenciados da Prefeitura e da cidade, acompanhado de análises setoriais importantes para a elaboração e avaliação de políticas públicas."
+        },
+
+        {
+            "id":"sp-mortalidade-infantil",
+            "name":"Mortalidade Infantil no estado de São Paulo",
+            "link":"https://repositorio.seade.gov.br/dataset/mortalidade-infantil",
+            "publisher":"SEADE",
+            "repository":"seade-repo",
+            "portal":"",
+            "theme":"Saúde",
+            "description":"Óbitos de crianças de até 1 ano de idade ocorridos nos municípios do estado de São Paulo"
+        },
+
+        {
+            "id":"sp-nascidos-vivos",
+            "name":"Nascidos vivos do Estado de São Paulo",
+            "link":"https://repositorio.seade.gov.br/dataset/microdados-nascidos-vivos",
+            "publisher":"SEADE",
+            "repository":"seade-repo",
+            "portal":"",
+            "theme":"Saúde",
+            "description":"Microdados da base de nascidos vivos do Estado de São Paulo"
+        },
+
+        {
+            "id":"sp-vitais",
+            "name":"Seade Estatísticas Vitais",
+            "link":"https://repositorio.seade.gov.br/dataset/estatisticas-vitais",
+            "publisher":"SEADE",
+            "repository":"seade-repo",
+            "portal":"",
+            "theme":"Saúde",
+            "description":"O produto Estatísticas Vitais contempla os dados de nascidos vivos e óbitos para o acompanhamento das transformações demográficas na população paulista. As informações são atualizadas mensalmente e produzidas com base nos registros dos eventos nos cartórios do Estado de SP."
+        },
+
+        {
+            "id":"pcdas-sim",
+            "name":"Sistema de Informação sobre Mortalidade - SIM",
+            "link":"https://pcdas.icict.fiocruz.br/conjunto-de-dados/sistema-de-informacoes-de-mortalidade-sim/",
+            "publisher":"Fiocruz",
+            "repository":"pcdas-fiocruz",
+            "portal":"https://pcdas.icict.fiocruz.br/conjunto-de-dados/sistema-de-informacoes-de-mortalidade-sim/analise-visual/",
+            "theme":"Saúde",
+            "description":"Dados do Sistema de Informação sobre Mortalidade (SIM) reunidos pela Plataforma de Ciência de Dados aplicada à Saúde (PCDaS). Os dados foram obtidos junto ao DATASUS (Ministério da Saúde), tratados e enriquecidos seguindo uma metodologia própria de ETL da PCDaS, resultando em um dataset anual com todos os registros das declarações de óbito contidas no SIM à partir de 1996. A atualização dos dados é realizada pelo DATASUS e a PCDaS extrai os registros anuais assim que disponibilizados. As colunas com nomes em MAIÚSCULO representam dados originais advindos do DATASUS e colunas com nomes iniciando em minúsculo representam dados resultantes de transformação ou enriquecimento."
+        },
+
+        {
+            "id":"sim",
+            "name":"Sistema de Informação sobre Mortalidade – SIM",
+            "link":"https://opendatasus.saude.gov.br/dataset/sim-2020-2021",
+            "publisher":"SUS",
+            "repository":"datasus",
+            "portal":"",
+            "theme":"Saúde",
+            "description":"O Sistema de Informação sobre Mortalidade (SIM), desenvolvido pelo Ministério da Saúde em 1975, é produto da unificação de mais de quarenta modelos de Declaração de Óbito utilizados ao longo dos anos, para coletar dados sobre mortalidade no país."
+        },
+
+        {
+            "id":"censoescolar",
+            "name":"Microdados do Censo Escolar da Educacação Básica",
+            "link":"https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/censo-escolar",
+            "publisher":"INEP",
+            "repository":"inep",
+            "portal":"https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/indicadores-educacionais",
+            "theme":"Educação",
+            "description":"Microdados do Censo Escolar da Educacação Básica"
+        },
+
+        {
+            "id":"censo-educacao-superior",
+            "name":"Microdados do Censo Escolar da Educacação Superior",
+            "link":"https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/censo-da-educacao-superior",
+            "publisher":"INEP",
+            "repository":"inep",
+            "portal":"https://www.gov.br/inep/pt-br/areas-de-atuacao/pesquisas-estatisticas-e-indicadores/censo-da-educacao-superior/resultados",
+            "theme":"Educação",
+            "description":"Microdados do Censo Escolar da Educacação Superior"
+        },
+
+        {
+            "id":"cntc",
+            "name":"Catálogo Nacional de Cursos Técnicos",
+            "link":"",
+            "publisher":"MEC",
+            "repository":"",
+            "portal":"http://cnct.mec.gov.br/",
+            "theme":"Educação",
+            "description":"O Catálogo Nacional de Cursos Técnicos (CNCT) disciplina a oferta de cursos de educação profissional técnica de nível médio para orientar e informar as instituições de ensino, os estudantes, as empresas e a sociedade em geral. Seu conteúdo é atualizado periodicamente pelo Ministério da Educação para contemplar novas demandas socioeducacionais."
+        },
+
+        {
+            "id":"municipiosbrasileiros",
+            "name":"Lista de Municipios do SIAFI",
+            "link":"https://www.tesourotransparente.gov.br/ckan/dataset/lista-de-municipios-do-siafi",
+            "publisher":"Tesouro Nacional",
+            "repository":"tesourotransparente",
+            "portal":"",
+            "theme":"Geografia",
+            "description":"Lista de municípios do SIAFI com código SIAFI e código IBGE"
+        },
+
+        {
+            "id":"cursosgradunb",
+            "name":"Cursos de Graduação da UnB",
+            "link":"http://dados.unb.br/pt_BR/dataset/cursos-de-graduacao",
+            "publisher":"UnB",
+            "repository":"unb",
+            "portal":"",
+            "theme":"Educação",
+            "description":"Relação dos cursos de graduação da Universidade de Brasília"
+        },
+
+        {
+            "id":"docentes-ufrn",
+            "name":"Docentes UFRN",
+            "link":"https://dados.ufrn.br/dataset/docentes",
+            "publisher":"UFRN",
+            "repository":"ufrn",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"discentes-ufrn",
+            "name":"Discentes UFRN",
+            "link":"https://dados.ufrn.br/dataset/discentes",
+            "publisher":"UFRN",
+            "repository":"ufrn",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"cursos-ufrn",
+            "name":"Cursos de Graduação UFRN",
+            "link":"https://dados.ufrn.br/dataset/cursos-de-graduacao",
+            "publisher":"UFRN",
+            "repository":"ufrn",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"tcc-ufrn",
+            "name":"Trabalhos de Conclusão de Curso UFRN",
+            "link":"https://dados.ufrn.br/dataset/trabalhos-de-conclusao-de-curso",
+            "publisher":"UFRN",
+            "repository":"ufrn",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"discentes-ifc",
+            "name":"Discentes IFC",
+            "link":"https://dadosabertos.ifc.edu.br/dataset/discentes",
+            "publisher":"IFC",
+            "repository":"ifc",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"cursos-ifc",
+            "name":"Cursos de Graduação do IFC",
+            "link":"https://dadosabertos.ifc.edu.br/dataset/cursos-superiores-do-ifc",
+            "publisher":"IFC",
+            "repository":"ifc",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"cursos-pos-ifc",
+            "name":"Cursos de Pós-Graduação do IFC",
+            "link":"https://dadosabertos.ifc.edu.br/dataset/cursos-de-pos-graduacao-lato-sensu-e-stricto-sensu",
+            "publisher":"IFC",
+            "repository":"ifc",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"cusos-pos-ufma",
+            "name":"Cursos de Pós-Graduaçãoda UFMA",
+            "link":"https://dadosabertos.ufma.br/dataset/programas-de-pos-graduacao",
+            "publisher":"UFMA",
+            "repository":"ufma",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"docentes-ufma",
+            "name":"Relação dos docentes por unidade de lotação que compõe a instituição",
+            "link":"https://dadosabertos.ufma.br/dataset/docentes-2017",
+            "publisher":"UFMA",
+            "repository":"ufma",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"tese-ufma",
+            "name":"Relação das defesas de dissertação e tese de programas de pós-graduação stricto-sensu defendidas por semestre e por curso.",
+            "link":"https://dadosabertos.ufma.br/dataset/defesas-de-dissertacao-e-tese",
+            "publisher":"UFMA",
+            "repository":"ufma",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"servidores-ifpb",
+            "name":"Relação de Servidores da Instituição",
+            "link":"https://dados.ifpb.edu.br/dataset/servidores",
+            "publisher":"IFPB",
+            "repository":"ifpb",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"alunos-ifpb",
+            "name":"Relação de Alunos do Instituto",
+            "link":"https://dados.ifpb.edu.br/dataset/alunos",
+            "publisher":"IFPB",
+            "repository":"ifpb",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"seridores-ifrn",
+            "name":"Relação de Servidores da Instituição",
+            "link":"https://dados.ifrn.edu.br/dataset/servidores",
+            "publisher":"IFRN",
+            "repository":"ifrn",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"cursos-ifrn",
+            "name":"Relação de Cursos ofertados pela Instituição",
+            "link":"https://dados.ifrn.edu.br/dataset/cursos-ofertados",
+            "publisher":"IFRN",
+            "repository":"ifrn",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"alunos-ifrn",
+            "name":"Relação dos alunos ativos da Instituição.",
+            "link":"https://dados.ifrn.edu.br/dataset/alunos-da-instituicao",
+            "publisher":"IFRN",
+            "repository":"ifrn",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"servidores-ufca",
+            "name":"Servidores lotados na Universidade Federal do Cariri - UFCA",
+            "link":"https://dados.ufca.edu.br/dataset/servidores-ufca",
+            "publisher":"UFCA",
+            "repository":"ufca",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"cursos-ufca",
+            "name":"Relação dos Cursos de Graduação da UFCA",
+            "link":"https://dados.ufca.edu.br/dataset/cursos-de-graduacao",
+            "publisher":"UFCA",
+            "repository":"ufca",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"cursos-pos-ufca",
+            "name":"Lista de cursos de pós graduação UFCA",
+            "link":"https://dados.ufca.edu.br/dataset/lista-de-cursos-de-pos-graduacao-ufca",
+            "publisher":"UFCA",
+            "repository":"ufca",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"alunos-ufcspa",
+            "name":"Relação de matrículas de graduação e pós-graduação da UFCSPA.",
+            "link":"https://dados.ufcspa.edu.br/dataset/matriculas-da-graduacao-e-pos-graduacao",
+            "publisher":"UFCSPA",
+            "repository":"ufcspa",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"cursos-ufcspa",
+            "name":"Relação de cursos de graduação e pós-graduação da UFCSPA.",
+            "link":"https://dados.ufcspa.edu.br/dataset/cursos",
+            "publisher":"UFCSPA",
+            "repository":"ufcspa",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"servidores-ufcspa",
+            "name":"Relação de servidores da UFCSPA.",
+            "link":"https://dados.ufcspa.edu.br/dataset/servidores",
+            "publisher":"UFCSPA",
+            "repository":"ufcspa",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"cursos-pos-ufersa",
+            "name":"Lista geral de cursos de Pós-graduação da instituição",
+            "link":"https://dadosabertos.ufersa.edu.br/dataset/cursos-de-pos-graduacao",
+            "publisher":"UFERSA",
+            "repository":"ufersa",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"cursos-ufersa",
+            "name":"Lista geral de cursos de graduação da instituição",
+            "link":"https://dadosabertos.ufersa.edu.br/dataset/cursos-de-graduacao",
+            "publisher":"UFERSA",
+            "repository":"ufersa",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"cursos-uffs",
+            "name":"Lista de cursos da graduação",
+            "link":"https://dados.uffs.edu.br/dataset/graduacao_cursos",
+            "publisher":"UFFS",
+            "repository":"uffs",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"cursos-pos-uffs",
+            "name":"Lista de cursos de pós-graduação",
+            "link":"https://dados.uffs.edu.br/dataset/pos_graduacao_cursos",
+            "publisher":"UFFS",
+            "repository":"uffs",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+        {
+
+            "id":"alunos-uffs",
+            "name":"Lista de matriculados nas turmas da graduação",
+            "link":"https://dados.uffs.edu.br/dataset/graduacao_historico",
+            "publisher":"UFFS",
+            "repository":"uffs",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"alunos-ufms",
+            "name":"Graduação - Alunos da UFMS",
+            "link":"https://dadosabertos.ufms.br/dataset/graduacao-alunos",
+            "publisher":"UFMS",
+            "repository":"ufms",
+            "portal":"",
+            "theme":"Educação",
+            "description":"Dados dos alunos de graduação presencial e educação a distância. (nome, rga_descaracterizado, curso, unidade, situação) da UFMS"
+        },
+
+        {
+            "id":"cursos-ufms",
+            "name":"Graduação - Cursos da UFMS",
+            "link":"https://dadosabertos.ufms.br/dataset/graduacao",
+            "publisher":"UFMS",
+            "repository":"ufms",
+            "portal":"",
+            "theme":"Educação",
+            "description":"Lista de Cursos de Graduação (nome, cidade, grau, turno, modalidade, unidade, tipo de oferta, área de conhecimento, publicação, portaria, situação) da UFMS"
+        },
+
+        {
+            "id":"anunos-pos-ufms",
+            "name":"Pós-Graduação - Alunos da UFMS",
+            "link":"https://dadosabertos.ufms.br/dataset/pos-graduacao-alunos",
+            "publisher":"UFMS",
+            "repository":"ufms",
+            "portal":"",
+            "theme":"Educação",
+            "description":"Dados dos alunos de pós-graduação (nome, rga_descaracterizado, curso, unidade, situação) da UFMS"
+        },
+
+        {
+            "id":"cursos-pos-ufms",
+            "name":"Pós-Graduação - Cursos da UFMS",
+            "link":"https://dadosabertos.ufms.br/dataset/pos-graduacao-cursos",
+            "publisher":"UFMS",
+            "repository":"ufms",
+            "portal":"",
+            "theme":"Educação",
+            "description":"Lista de Cursos da Pós-Graduação (nome, cidade, nível, modalidade, área, unidade, coordenador, resolução, diário oficial, situação) da UFMS"
+        },
+
+        {
+            "id":"alunos-ufob",
+            "name":"Alunos Graduação UFOB",
+            "link":"https://dados.gov.br/dados/conjuntos-dados/estudantes-ingressantes",
+            "publisher":"UFOB",
+            "repository":"dadosgovbr",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"cursos-ufob",
+            "name":"Cursos da Instituição",
+            "link":"https://dados.gov.br/dados/conjuntos-dados/cursos-de-graduacao-ufob",
+            "publisher":"UFOB",
+            "repository":"dadosgovbr",
+            "portal":"",
+            "theme":"Educação",
+            "description":"Informações sobre cursos de graduação da UFOB."
+        },
+
+        {
+            "id":"matriculas-ufob",
+            "name":"Matrículas",
+            "link":"https://dados.gov.br/dados/conjuntos-dados/matriculas",
+            "publisher":"UFOB",
+            "repository":"dadosgovbr",
+            "portal":"",
+            "theme":"Educação",
+            "description":"Relação nominal dos estudantes matriculados nos cursos de graduação e pós-graduação."
+        },
+
+        {
+            "id":"alunos-ufop",
+            "name":"Graduação - Ingressantes",
+            "link":"http://dados.ufop.br/dataset/alunos-ingressantes",
+            "publisher":"UFOP",
+            "repository":"ufop",
+            "portal":"",
+            "theme":"Educação",
+            "description":"Alunos Ingressantes nos cursos de Graduação da Universidade Federal de Ouro Preto divididos por ano/semestre e modalidade de ingresso."
+        },
+
+        {
+            "id":"docentes-ufop",
+            "name":"Relação de Docentes",
+            "link":"http://dados.ufop.br/dataset/perfil-dos-professores",
+            "publisher":"UFOP",
+            "repository":"ufop",
+            "portal":"",
+            "theme":"Educação",
+            "description":"Dados funcionais dos Docentes UFOP"
+        },
+
+        {
+            "id":"alunos-pos-ufop",
+            "name":"Alunos de Pós-Graduação",
+            "link":"http://dados.ufop.br/dataset/alunos-de-pos-graduacao",
+            "publisher":"UFOP",
+            "repository":"ufop",
+            "portal":"",
+            "theme":"Educação",
+            "description":"Alunos de Pós-Graduação da UFOP a partir do ano de 1992"
+        },
+
+        {
+            "id":"cursos-ufpb",
+            "name":"Cursos de Graduação",
+            "link":"https://dadosabertos.ufpb.br/dataset/cursos-de-graduacao",
+            "publisher":"UFPB",
+            "repository":"ufpb",
+            "portal":"",
+            "theme":"Educação",
+            "description":"Dados referentes aos cursos de graduação"
+        },
+
+        {
+            "id":"alunos-ufpel",
+            "name":"UFPEL - Alunos de graduação",
+            "link":"https://dados.ufpel.edu.br/dataset/alunos-de-graduacao",
+            "publisher":"UFPEL",
+            "repository":"ufpel",
+            "portal":"",
+            "theme":"Educação",
+            "description":"Dados referentes ao número de alunos matriculados, ingressantes, formados e em mobilidade acadêmica da graduação presencial e a distância da UFPEL."
+        },
+
+        {
+            "id":"alunos-pos-ufpel",
+            "name":"UFPEL - Alunos de Pós-Graduação",
+            "link":"https://dados.ufpel.edu.br/dataset/alunos-de-pos-graduacao",
+            "publisher":"UFPEL",
+            "repository":"ufpel",
+            "portal":"",
+            "theme":"Educação",
+            "description":"Dados relacionados aos alunos de pós-graduação, contendo informações referentes ao número de alunos matriculados, ingressantes e formados e em mobilidade acadêmica."
+        },
+
+        {
+            "id":"cursos-ufpel",
+            "name":"UFPEL - Cursos",
+            "link":"https://dados.ufpel.edu.br/dataset/cursos",
+            "publisher":"UFPEL",
+            "repository":"ufpel",
+            "portal":"",
+            "theme":"Educação",
+            "description":"Relação de Cursos da Instituição com seus respectivos códigos, nível, modalidade, grau, data de início e situação."
+        },
+
+        {
+            "id":"cursos-ufpi",
+            "name":"Cursos de graduação",
+            "link":"https://dados.ufpi.br/dataset/curso-de-graduacao",
+            "publisher":"UFPI",
+            "repository":"ufpi",
+            "portal":"",
+            "theme":"Educação",
+            "description":"Listagens de cursos de graduação da UFPI."
+        },
+
+        {
+            "id":"alunos-ufpi",
+            "name":"Discentes Graduação Ativos",
+            "link":"",
+            "publisher":"UFPI",
+            "repository":"ufpi",
+            "portal":"https://dados.ufpi.br/dataset/discentes-graduacao-ativos",
+            "theme":"Educação",
+            "description":"Relação de discente dos cursos de graduação da UFPI"
+        },
+
+        {
+            "id":"docentes-ufpi",
+            "name":"Docentes",
+            "link":"https://dados.ufpi.br/dataset/perfil-corpo-docente",
+            "publisher":"UFPI",
+            "repository":"ufpi",
+            "portal":"",
+            "theme":"Educação",
+            "description":"Relação de docentes da UFPI."
+        },
+
+        {
+            "id":"alunos-pos-ufpi",
+            "name":"Discentes pós graduação",
+            "link":"https://dados.ufpi.br/dataset/discentes-pos-graduacao",
+            "publisher":"UFPI",
+            "repository":"ufpi",
+            "portal":"",
+            "theme":"Educação",
+            "description":"Relação dos discentes de pós graduação da UFPI"
+        },
+
+        {
+
+            "id":"cursos-pos-ufpi",
+            "name":"Cursos de Pós-Graduação",
+            "link":"https://dados.ufpi.br/dataset/cursos-de-pos-graduacao",
+            "publisher":"UFPI",
+            "repository":"ufpi",
+            "portal":"",
+            "theme":"Educação",
+            "description":"Listagem dos cursos de pós-graduação na UFPI"
+        },
+
+        {
+            "id":"cursos-pos-ufsj",
+            "name":"Cursos de pós-graduação",
+            "link":"http://dados.ufsj.edu.br/dataset/cursos-de-pos-graduacao",
+            "publisher":"UFSJ",
+            "repository":"ufsj",
+            "portal":"",
+            "theme":"Educação",
+            "description":"Relação dos cursos de pós-graduação da UFSJ"
+        },
+
+        {
+            "id":"cursos-ufsj",
+            "name":"Cursos de graduação",
+            "link":"http://dados.ufsj.edu.br/dataset/cursos-de-graduacao",
+            "publisher":"UFSJ",
+            "repository":"ufsj",
+            "portal":"",
+            "theme":"Educação",
+            "description":""
+        },
+
+        {
+            "id":"docentes-ufv",
+            "name":"Docentes",
+            "link":"https://dados.ufv.br/dataset/docentes",
+            "publisher":"UFV",
+            "repository":"ufv",
+            "portal":"",
+            "theme":"Educação",
+            "description":"Atuação docente"
+        },
+
+        {
+            "id":"cursos-ufv",
+            "name":"Cursos",
+            "link":"https://dados.ufv.br/dataset/cursos",
+            "publisher":"UFV",
+            "repository":"ufv",
+            "portal":"",
+            "theme":"Educação",
+            "description":"Relação de todos os cursos da UFV"
+        },
+
+        {
+            "id":"alunos-ufv",
+            "name":"Alunos Ingressantes",
+            "link":"https://dados.ufv.br/dataset/alunos-ingressantes",
+            "publisher":"UFV",
+            "repository":"ufv",
+            "portal":"",
+            "theme":"Educação",
+            "description":"Relação de alunos ingressantes, por ano. São listados apenas alunos que ingressaram na UFV a partir de 2010. Os foram anonimizados em conformidade à LGPD."
+        },
+
+        {
+            "id":"cursos-unifesspa",
+            "name":"Relação de cursos de graduação",
+            "link":"https://dados.unifesspa.edu.br/dataset/relacao-de-cursos-de-graduacao",
+            "publisher":"UNIFESSPA",
+            "repository":"unifesspa",
+            "portal":"",
+            "theme":"Educação",
+            "description":"Lista de curso de graduação da Unifesspa."
+        },
+        {
+
+            "id":"cursos-pos-unifesspa",
+            "name":"Relação dos cursos de pós-graduação",
+            "link":"https://dados.unifesspa.edu.br/dataset/relacao-de-cursos-de-pos-graduacao",
+            "publisher":"UNIFESSPA",
+            "repository":"unifesspa",
+            "portal":"",
+            "theme":"Educação",
+            "description":"Lista dos cursos de pós-graduação"
+        },
+
+        {
+            "id":"docentes-unifesspa",
+            "name":"Relação de servidores: Docentes (titulação)",
+            "link":"https://dados.unifesspa.edu.br/dataset/relacao-de-servidores-ativos",
+            "publisher":"UNIFESSPA",
+            "repository":"unifesspa",
+            "portal":"",
+            "theme":"Educação",
+            "description":"Lista de servidores docentes com titulação acadêmica na Unifesspa."
+        },
+
+        {
+            "id":"IDH",
+            "name":"Índice de desenvolvimento Humano (IDH)",
+            "link":"https://cidades.ibge.gov.br/brasil/sp/pesquisa/37/0?indicador=30255&ano=2010&tipo=ranking",
+            "publisher":"IBGE",
+            "repository":"ibge",
+            "portal":"ibge.gov.br",
+            "theme":"Economia e Finanças",
+            "description":"Índece de desenvolvimento humano dos estados brasileiros"
+        },
+
+        {
+            "id":"dados-meteorologicos",
+            "name":"Dados meteorológicos históricos anuais",
+            "link":"https://portal.inmet.gov.br/dadoshistoricos",
+            "publisher":"INMET",
+            "repository":"inmet",
+            "portal":"https://portal.inmet.gov.br",
+            "theme":"Geografia",
+            "description":"Informações sobre a meteorologia brasileira dividida por ano"
+        },
+
+        {
+            "id":"informacoes-e-candidaturas",
+            "name":"Portal de Dados Abertos do TSE",
+            "link":"https://dadosabertos.tse.jus.br/dataset/",
+            "publisher":"TSE",
+            "repository":"tse",
+            "portal":"https://dadosabertos.tse.jus.br",
+            "theme":"Governo e Política",
+            "description":"O RDE (repositório de dados eleitorais) disponibiliza dados eleitorais desde o ano de 1945"
+        },
+
+        {
+            "id":"gtfs-onibus-rio",
+            "name":"GTFS do Rio de Janeiro",
+            "link":"https://www.data.rio/datasets/gtfs-do-rio-de-janeiro/about",
+            "publisher":"Prefeitura da Cidade do Rio de Janeiro",
+            "repository":"data-rio",
+            "portal":"https://www.d.ata.rio",
+            "theme":"Transportes e Trânsito",
+            "description":"Arquivo de informações de transporte público da cidade do Rio de Janeiro em formato GTFS (Especificação Geral sobre Feeds de Transporte Público), contendo dados sobre rotas, paradas e horários de serviços de ônibus (urbanos e executivos) e BRTs da cidade do Rio de Janeiro regulamentados pela Secretaria Municipal de Transportes."
+        },
+
+        {
+            "id":"",
+            "name":"",
+            "link":"",
+            "publisher":"",
+            "repository":"",
+            "portal":"",
+            "theme":"tbd",
+            "description":""
+        }
+    ]
+}
