@@ -6,20 +6,20 @@ from dash import dcc, html
 jumbotron = html.Div(
     dbc.Container(
         [
-            html.H1("Painel DW-BRA", className="display-3"),
+            html.H1("Painel DW-BR", className="display-3"),
             html.P("",
                 className="lead",
             ),
             html.Hr(className="my-2"),
             html.P(
-                "Ferramenta de visualização de dados do Data Warehouse DW-Bra.",
+                "Ferramenta de visualização de dados do Data Warehouse DW-BR.",
                 className="lead",
             ),
             html.P(
                 dbc.Button(
                     "Mais Informações",
                     color="success",
-                    href="https://github.com/andrespp/dw-bra",
+                    href="https://github.com/andrespp/dw-br",
                     external_link=True,
                     target='_blank',
                 ),
