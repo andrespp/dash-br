@@ -23,21 +23,21 @@ navbar = dbc.NavbarSimple([
         dcc.Location(id='url', refresh=False),
 
         # Saúde
-        dbc.DropdownMenu(
-            children=[
-                dbc.DropdownMenuItem("DATASETS", header=True),
-                dbc.DropdownMenuItem("DataSUS", href="/datasus"),
-            ],
-            nav=True,
-            in_navbar=True,
-            label="Saúde",
-        ),
+        #dbc.DropdownMenu(
+        #    children=[
+        #        dbc.DropdownMenuItem("DATASETS", header=True),
+        #        dbc.DropdownMenuItem("DataSUS", href="/datasus"),
+        #    ],
+        #    nav=True,
+        #    in_navbar=True,
+        #    label="Saúde",
+        #),
         # Economia
         dbc.DropdownMenu(
             children=[
                 dbc.DropdownMenuItem("DATASETS", header=True),
                 dbc.DropdownMenuItem("CAGED", href="/novo_caged"),
-                dbc.DropdownMenuItem("RAIS", href="/nfse"),
+                dbc.DropdownMenuItem("RAIS", href="/rais", disabled=True),
             ],
             nav=True,
             in_navbar=True,
@@ -49,8 +49,8 @@ navbar = dbc.NavbarSimple([
             children=[
                 dbc.DropdownMenuItem("Browsing", header=True),
                 dbc.DropdownMenuItem("Datasets", href="/datasets"),
-                dbc.DropdownMenuItem("Aux", header=True),
-                dbc.DropdownMenuItem("Schema", href="/schema"),
+                # dbc.DropdownMenuItem("Aux", header=True),
+                dbc.DropdownMenuItem("Schema", href="/schema", disabled=True),
                 dbc.DropdownMenuItem("Tables (Sample DW)", href="/sampledw"),
                 dbc.DropdownMenuItem("Tables (Full DW)", href="/parquet"),
             ],
